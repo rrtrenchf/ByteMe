@@ -11,30 +11,46 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import NoMatch from "../pages/NoMatch";
+import axios from "axios"
 
-export const App = () => {
+class App extends React.Component {
+    state = {"":""}
 
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(loadUser());
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+componentDidMount(){
+    
+ 
 
-    return (
-        <>
-            <Router history={history}>
-                <NavBar />
-                <Switch>
-                    <Route path="/" exact component={Home} />
-                    <Route path="/login" component={Login} />
-                    <Route path="/register" component={Register} />
-                    <PrivateRoute path="/dashboard" component={UserDashboard} />
-                    <PrivateRoute path="/pageone" component={PageOne} />
-                    <Route component={NoMatch} />
-                </Switch>
-            </Router>
-        </>
-    )
+var config = {
+  method: 'post',
+  url: 'https://accounts.spotify.com/api/token?grant_type=client_credentials',
+  headers: { 
+    'Accept': 'application/json', 
+    'Content-Type': 'application/x-www-form-urlencoded', 
+    'Authorization': 'Basic ZmM5NzkyYzNkOWU0NGRmODk1NjM4OTY1YmZmOGI4MGI6NmE2OTYwODNkNDMwNDM5ZGJmMGNmNTRjZDg2MTYyMGY=', 
+    
+  },
+  data :""
+};
+
+axios(config)
+.then(function (response) {
+  console.log(response.data);
+})
+.catch(function (error) {
+  console.log(error);
+});
+
+ 
 }
+
+render(){
+    return (
+ <div>
+
+ </div>
+ )
+ };
+
+};
 
 export default App;
