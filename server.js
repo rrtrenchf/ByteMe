@@ -1,9 +1,11 @@
+
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
 require("dotenv").config();
 const config = require("./config");
 const routes = require("./routes");
+
 
 const app = express();
 
@@ -17,15 +19,16 @@ if (process.env.NODE_ENV === "production") {
 };
 
 // connect to Mongo DB 
-mongoose.connect(config.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: true })
+mongoose.connect('mongodb://localhost/', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: true })
     .then(() => console.log(`Mongo DB Succesfully Connected`))
     .catch(err => console.log(err));
 
 // use routes
 app.use(routes);
 
+
 // check for "production" enviroment and set port
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 // start server
 app.listen(PORT, () => {
