@@ -12,12 +12,16 @@ import Register from "../pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import NoMatch from "../pages/NoMatch";
 import axios from "axios"
+import SearchForm from "./SearchForm";
+
 
 class Api extends React.Component {
-    state = {"":""}
+    state = {
+      search:"",
+      results: []
+    };
 
 componentDidMount(){
-
 var config = {
     //get token
   method: 'post',
@@ -26,17 +30,15 @@ var config = {
     'Accept': 'application/json', 
     'Content-Type': 'application/x-www-form-urlencoded', 
     'Authorization': 'Basic ZmM5NzkyYzNkOWU0NGRmODk1NjM4OTY1YmZmOGI4MGI6NmE2OTYwODNkNDMwNDM5ZGJmMGNmNTRjZDg2MTYyMGY=', 
-    
   },
   data :""
 };
 
 axios(config)
-//got token
+    //got token
 .then(function (response) {
     var token = response.data.access_token
-
-  console.log(response.data.access_token);
+    console.log(token);
   //another axios get to search with the token(BQBJZeaaEsHYfSeM7ndR7uDcA2IyenVdLq-q9uFHp2V_CTdVl2NQdyGuxG0TdQy0H9cYGR0ntu-yYw7bh04)
   var config = {
     method: 'get',
@@ -51,7 +53,9 @@ axios(config)
   
   axios(config)
   .then(function (response) {
-    console.log((response.data));
+    //setState to get results for table
+    this.setState({ results: response.data.results })
+    console.log((response.data.results));
   })
   .catch(function (error) {
     console.log(error);
@@ -126,12 +130,27 @@ axios({
  
 }
 
+  //will handle the filtering of first or last name
+  handleInputChange = (event) => {
+    event.preventDefault();
+    const value = event.target.value;
+    // console.log("This is the value", value)
+    this.setState({
+      search: value
+    });
+  };
 
 render(){
     return (
- <div>
-
- </div>
+      <div>
+        <SearchForm
+          search={this.state.search}
+          handleInputChange={this.handleInputChange}
+        />
+        {/* <SpotifyResults 
+          results={this.state.results}
+        /> */}
+     </div>
  )
  };
 
