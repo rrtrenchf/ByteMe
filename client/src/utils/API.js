@@ -1,5 +1,4 @@
 import axios from "axios";
-
 export default {
     // API request to server side 
     register(data) {
@@ -11,5 +10,4 @@ export default {
     loadUser(headers) {
         return axios.get("/auth/user", headers)
     }
-
 }
