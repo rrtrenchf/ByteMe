@@ -19,11 +19,6 @@ function App() {
     return (
         <div>
             <Api/>
-            <ResultList
-          results={this.state.results}
-          search={this.state.search}
-          sortList={this.sortList}
-        />
          </div>
     )
 }

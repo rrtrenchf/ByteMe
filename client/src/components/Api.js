@@ -46,7 +46,7 @@ axios(config)
     headers: { 
       'Accept': 'application/json', 
       'Content-Type': 'application/x-www-form-urlencoded', 
-      'Authorization': 'Bearer BQBJZeaaEsHYfSeM7ndR7uDcA2IyenVdLq-q9uFHp2V_CTdVl2NQdyGuxG0TdQy0H9cYGR0ntu-yYw7bh04'
+      'Authorization': ('Bearer' + token)
     },
     data :""
   };
@@ -54,8 +54,8 @@ axios(config)
   axios(config)
   .then(function (response) {
     //setState to get results for table
-    this.setState({ results: response.data.results })
-    console.log((response.data.results));
+    // this.setState({ response.data })
+    console.log((response.data));
   })
   .catch(function (error) {
     console.log(error);
@@ -129,6 +129,18 @@ axios({
     // })
  
 }
+// ^^^^^^^^^^ End of didMountComponent for API calls^^^^^^^^^^^
+
+
+
+//Hide and show element on zipcode on click
+  
+  handleClick = (event) => {
+    event.preventDefault();
+    console.log('The link was clicked.');
+    
+
+  };
 
   //will handle the filtering of first or last name
   handleInputChange = (event) => {
@@ -146,6 +158,7 @@ render(){
         <SearchForm
           search={this.state.search}
           handleInputChange={this.handleInputChange}
+          handleClick={this.handleClick}
         />
         {/* <SpotifyResults 
           results={this.state.results}
