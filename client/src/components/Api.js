@@ -82,7 +82,7 @@ class Api extends React.Component {
 
         axios({
 
-          url: "https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid=e971f7deaf07913de154d7e7ed5455c5&units=imperial",
+          url: "https://api.openweathermap.org/data/2.5/forecast?lat="+lat+"&lon="+lon+"&appid=e971f7deaf07913de154d7e7ed5455c5&units=imperial",
           method: "GET",
         }).then( (response)=> {
           console.log(response.data)
