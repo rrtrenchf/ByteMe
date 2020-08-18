@@ -2,6 +2,8 @@ import React from 'react'
 import { Header, Message, Button, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Api from "../../components/Api";
 
 export const Home = () => {
     // access to the isAuthenticated property from the auth reducer state
@@ -20,18 +22,23 @@ export const Home = () => {
         }
     }
 
+
+
     return (
         <div>
-            <Message className="message-container" size="huge" secondary="true">
-                <Header size="huge"> Home</Header>
-                <p style={{ marginBottom: "5px" }}>This is a Boiler Plate MERN application with authentication using JSON Web Tokens.</p>
-                <p style={{ margin: "5px 0 25px" }}>This APP was design to be used as a starting point for any developer looking to integrate authentication with a MERN application.</p>
-                <Link to="/login">
-                    {showLoginBtn()}
-                </Link>
-            </Message>
-
+            <div class="jumbotron">
+                <h1 class="display-4" style={{ textAlign:"center" }}>Sweater Weather</h1>
+            </div>
+            <Router>
+                <div>
+                    {/* switch keeps pages from loading at same time */}
+                    <Switch>
+                        <Route exact path="/" component={Api} />
+                    </Switch>
+                </div>
+            </Router>
         </div>
+
     )
 };
 

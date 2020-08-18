@@ -9,7 +9,7 @@ function SearchForm(props) {
 
     return (
         <form className="text-center">
-            <div className="form-group">
+            <div className="input-group mb-3"  style={{ marginLeft: "425px" }}>
                 <label htmlFor="search"></label>
                 <input
                     onChange={props.handleInputChange}
@@ -17,10 +17,13 @@ function SearchForm(props) {
                     name="search"
                     type="text"
                     className="searchbox text-center"
-                    placeholder="Search by Artist"
+                    placeholder="Search by Artist or Song"
                     id="search"
                 />
-                <input
+                <div class="input-group-append">
+                <button type="button" class="btn btn-secondary">Make my Playlist!</button>
+                </div>
+                {/* <input
                     onChange={props.handleInputChange}
                     value={props.search}
                     name="search"
@@ -28,7 +31,7 @@ function SearchForm(props) {
                     className="searchbox text-center"
                     placeholder="Search by Song"
                     id="search"
-                />
+                /> */}
             </div>
             <div>
                 <a href="#" onClick={props.handleClick}>
