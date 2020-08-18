@@ -54,6 +54,10 @@ class Api extends React.Component {
           data: ""
         };
 
+
+
+
+
         axios(config)
           .then( (response) => {
             //setState to get results for table
@@ -141,6 +145,18 @@ class Api extends React.Component {
       // })
     }
   }
+// ^^^^^^^^^^ End of didMountComponent for API calls^^^^^^^^^^^
+
+
+
+//Hide and show element on zipcode on click
+  
+  handleClick = (event) => {
+    event.preventDefault();
+    console.log('The link was clicked.');
+    
+
+  };
 
   //will handle the filtering of first or last name
   handleInputChange = (event) => {
@@ -158,6 +174,7 @@ class Api extends React.Component {
         <SearchForm
           search={this.state.search}
           handleInputChange={this.handleInputChange}
+          handleClick={this.handleClick}
         />
 
         {/* <SpotifyResults 
