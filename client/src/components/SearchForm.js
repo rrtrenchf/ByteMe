@@ -17,10 +17,10 @@ function SearchForm(props) {
                     name="search"
                     type="text"
                     className="searchbox text-center"
-                    placeholder="Search by Artist"
+                    placeholder="Search by Artist or Song"
                     id="search"
                 />
-                <input
+                {/* <input
                     onChange={props.handleInputChange}
                     value={props.search}
                     name="search"
@@ -28,7 +28,7 @@ function SearchForm(props) {
                     className="searchbox text-center"
                     placeholder="Search by Song"
                     id="search"
-                />
+                /> */}
             </div>
             <div>
                 <a href="#" onClick={props.handleClick}>

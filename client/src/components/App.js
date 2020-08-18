@@ -11,47 +11,32 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import NoMatch from "../pages/NoMatch";
-import axios from "axios"
-import Api from "./Api"
+import axios from "axios";
 
+export const App = () => {
 
-function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+      dispatch(loadUser());
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
-    <Router>
-      <div>
-        {/* switch keeps pages from loading at same time */}
-        <Switch>
-        <Route exact path="/" component={Api} />
-        </Switch>
-      </div>
-    </Router>
-  );
-
+      <>
+          <Router history={history}>
+              <NavBar />
+              <Switch>
+                  <Route path="/" exact component={Home} />
+                  <Route path="/login" component={Login} />
+                  <Route path="/register" component={Register} />
+                  <PrivateRoute path="/dashboard" component={UserDashboard} />
+                  <PrivateRoute path="/pageone" component={PageOne} />
+                  <Route component={NoMatch} />
+              </Switch>
+          </Router>
+      </>
+  )
 }
 
-export default App;
-// npm install react-router-dom
 
-// import React from "react";
-// import { BrowserRouter as Router, Route } from "react-router-dom";
-// import NavTabs from "./components/NavTabs";
-// import Home from "./components/pages/Home";
-// import About from "./components/pages/About";
-// import Blog from "./components/pages/Blog";
-// import Contact from "./components/pages/Contact";
-
-// function App() {
-//   return (
-//     <Router>
-//       <div>
-//         <NavTabs />
-//         <Route exact path="/" component={Home} />
-//         <Route exact path="/about" component={About} />
-//         <Route exact path="/blog" component={Blog} />
-//         <Route path="/contact" component={Contact} />
-//       </div>
-//     </Router>
-//   );
-// }
-
-// export default App;
+export default App; 
