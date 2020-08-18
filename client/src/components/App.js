@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import history from "../history";
 import { useDispatch } from "react-redux";
 import { loadUser } from "../actions/authActions";
@@ -16,16 +16,41 @@ import Api from "./Api"
 
 
 function App() {
-    return (
-        <div>
-            <Api/>
-            <ResultList
-          results={this.state.results}
-          search={this.state.search}
-          sortList={this.sortList}
-        />
-         </div>
-    )
+  return (
+    <Router>
+      <div>
+        {/* switch keeps pages from loading at same time */}
+        <Switch>
+        <Route exact path="/" component={Api} />
+        </Switch>
+      </div>
+    </Router>
+  );
 }
 
 export default App;
+// npm install react-router-dom
+
+// import React from "react";
+// import { BrowserRouter as Router, Route } from "react-router-dom";
+// import NavTabs from "./components/NavTabs";
+// import Home from "./components/pages/Home";
+// import About from "./components/pages/About";
+// import Blog from "./components/pages/Blog";
+// import Contact from "./components/pages/Contact";
+
+// function App() {
+//   return (
+//     <Router>
+//       <div>
+//         <NavTabs />
+//         <Route exact path="/" component={Home} />
+//         <Route exact path="/about" component={About} />
+//         <Route exact path="/blog" component={Blog} />
+//         <Route path="/contact" component={Contact} />
+//       </div>
+//     </Router>
+//   );
+// }
+
+// export default App;
