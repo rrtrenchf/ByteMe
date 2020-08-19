@@ -9,7 +9,7 @@ function SearchForm(props) {
 
     return (
         <form className="text-center">
-            <div className="input-group mb-3"  style={{ marginLeft: "425px" }}>
+            <div className="input-group mb-3"  style={{ float: "relative" }}>
                 <label htmlFor="search"></label>
                 <input
                     onChange={props.handleInputChange}
