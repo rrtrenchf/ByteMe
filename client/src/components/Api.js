@@ -13,12 +13,19 @@ import PrivateRoute from "./PrivateRoute";
 import NoMatch from "../pages/NoMatch";
 import axios from "axios";
 import SearchForm from "./SearchForm";
+import { PromiseProvider } from 'mongoose';
+import SpotifyResults from "./SpotifyResults"
 
 function Api() {
   const [search, setSearch] = useState("");
   const [weatherResults, setWeatherResults] = useState({});
   const [spotifyResults, setSpotifyResults] = useState({});
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState(
+    {
+      search:""
+    }
+  );
+  const [newArtist, setnewArtist] = useState()
 
   //Hide and show element on zipcode on click
   const handleClick = event => {
@@ -29,8 +36,14 @@ function Api() {
 
   //will handle the filtering of first or last name
   const handleInputChange = event => {
-    event.preventDefault();
-    setInputValue({ search: event.target.value })
+    // Getting the value and name of the input which triggered the change
+    let value = event.target.value;
+    const name = event.target.name;
+
+    // Updating the input's state
+    this.setState({
+      [name]: value
+    });
   };
 
   const fetchData = useCallback(() => { 
@@ -48,10 +61,12 @@ function Api() {
       .then((res) => {
         var token = res.data.access_token
         console.log(token);
+        
+        
         //another axios get to search with the token(BQBJZeaaEsHYfSeM7ndR7uDcA2IyenVdLq-q9uFHp2V_CTdVl2NQdyGuxG0TdQy0H9cYGR0ntu-yYw7bh04)
         axios({
           method: 'get',
-          url: 'https://api.spotify.com/v1/search?q=Greenday&type=artist',
+          url: 'https://api.spotify.com/v1/search?q='+search+'&type=artist',
           headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -62,13 +77,17 @@ function Api() {
           .then((res) => {
             //set spotify results to get results for table
             setSpotifyResults(res.data);
-            setSearch(true);
             console.log(res.data)
+            
+           
+            
           })
           .catch((error) => {
             console.log(error);
           })
+         
       });
+     
       //weather API Call
      if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -95,18 +114,23 @@ function Api() {
   useEffect(() => {
     fetchData()
   }, [fetchData])
-
+ 
+ 
   return (
+   
     <div>
       <SearchForm
-        search={search}
+        
         handleInputChange={handleInputChange}
         handleClick={handleClick}
+        search ={useState}
       />
 
-      {/* <SpotifyResults 
-          results={this.state.results}
-        /> */}
+      <SpotifyResults 
+          spotifyResults={spotifyResults}
+          search ={useState}
+          
+        />
     </div>
   )
 };
