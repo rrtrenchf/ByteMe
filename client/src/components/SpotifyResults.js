@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 
 
 
@@ -40,10 +40,13 @@ import React from "react";
 function SpotifyResults(props) {
   console.log("What is props", props)
 
-  const findArtist = props.SpotifyResults?.filter(artist => console.log(props.spotifyResults.artists?.items[0].name));
-
-
-
+  // const findArtist = props.SpotifyResults?.filter(artist => console.log(props.spotifyResults.artists?.items[0].name));
+const results = props.spotifyResults
+let resultsArray=[]
+console.log("RESULTS HERE ",results.length)
+if (results.length!==0) {
+ resultsArray=results.artists.items
+}
   return (
     <div>
       <table className="table table-striped">
@@ -59,19 +62,20 @@ function SpotifyResults(props) {
         </thead>
         <tbody>
           {/* filter out search text against results list, loop through list to pull last name we are looking for*/}
-          {findArtist?.map(artist => {
+          {resultsArray.map(artist => {
+            
             return (
-              <div>
+              <tr>
                 <td>
-                  <img src={this.props.SpotifyResults.artist?.items[0].picture.medium} />
+                  {artist.images.length===0 ? "" : <img src={artist.images[0].url} />}
                 </td>
                 <td>
-                  {this.console.log(props.spotifyResults.artists?.items[0].name)}
+                  {(artist.name)}
                 </td>
                 <td>
                   {console.log("TABLE DATA")}
                 </td>
-              </div>
+              </tr>
 
             )
           })}

@@ -18,13 +18,9 @@ import SpotifyResults from "./SpotifyResults"
 
 function Api() {
   const [search, setSearch] = useState("");
-  const [weatherResults, setWeatherResults] = useState({});
-  const [spotifyResults, setSpotifyResults] = useState({});
-  const [inputValue, setInputValue] = useState(
-    {
-      search:""
-    }
-  );
+  const [weatherResults, setWeatherResults] = useState([]);
+  const [spotifyResults, setSpotifyResults] = useState([]);
+  const [inputValue, setInputValue] = useState("");
   const [newArtist, setnewArtist] = useState()
 
   //Hide and show element on zipcode on click
@@ -33,20 +29,24 @@ function Api() {
     console.log('The link was clicked.');
 
   };
+  //spotifysearchBTN
+  const handleSearch = event => {
+    event.preventDefault();
+    fetchData(search)
+    
 
+  };
   //will handle the filtering of first or last name
   const handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
     let value = event.target.value;
-    const name = event.target.name;
 
-    // Updating the input's state
-    this.setState({
-      [name]: value
-    });
+    setSearch(value)
+    console.log("####### "+search)
   };
 
-  const fetchData = useCallback(() => { 
+  const fetchData =(search) => { 
+    console.log("ANOTHER ONE"+ search)
     axios({
       //get token
       method: 'post',
@@ -58,9 +58,15 @@ function Api() {
       },
       data: ""
     })
-      .then((res) => {
-        var token = res.data.access_token
+      .then((data) => {
+        spotifySearch(data,search)
+         
+      });
+    };
+    const spotifySearch = (res,search)=> {
+      var token = res.data.access_token
         console.log(token);
+        console.log("HERE I AM"+ search)
         
         
         //another axios get to search with the token(BQBJZeaaEsHYfSeM7ndR7uDcA2IyenVdLq-q9uFHp2V_CTdVl2NQdyGuxG0TdQy0H9cYGR0ntu-yYw7bh04)
@@ -85,9 +91,11 @@ function Api() {
           .catch((error) => {
             console.log(error);
           })
-         
-      });
-     
+
+
+
+    }
+     const weatherSearch = ()=>{
       //weather API Call
      if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -109,26 +117,34 @@ function Api() {
         })
       })
     }
-  }, []);
+
+
+     }
+      
+  
 
   useEffect(() => {
-    fetchData()
-  }, [fetchData])
+    
+    weatherSearch()
+  }, [])
  
  
   return (
    
     <div>
+      {console.log("RENDER"+search)}
       <SearchForm
         
         handleInputChange={handleInputChange}
         handleClick={handleClick}
-        search ={useState}
+        handleSearch={handleSearch}
+        search ={search}
+        
       />
 
       <SpotifyResults 
           spotifyResults={spotifyResults}
-          search ={useState}
+          
           
         />
     </div>

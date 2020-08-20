@@ -12,7 +12,7 @@ console.log(props)
             <div className="input-group mb-3"  style={{ marginLeft: "425px" }}>
                 <label htmlFor="search"></label>
                 <input
-                    // onChange={props.handleInputChange}
+                    onChange={props.handleInputChange}
                     value={props.search}
                     name="search"
                     type="text"
@@ -21,7 +21,7 @@ console.log(props)
                     id="search"
                 />
                 <div class="input-group-append">
-                <button type="button" class="btn btn-secondary">Make my Playlist!</button>
+                <button type="button" class="btn btn-secondary" onClick={props.handleSearch}>Make my Playlist!</button>
                 </div>
                 {/* <input
                     onChange={props.handleInputChange}
