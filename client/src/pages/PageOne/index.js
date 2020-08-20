@@ -11,6 +11,7 @@ export const PageOne = () => {
             </Message>
         </>
     )
+    
 }
 
 export default PageOne;

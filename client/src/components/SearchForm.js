@@ -3,13 +3,13 @@ import React from "react";
 
 //handleInputChange will filter the employees by last name or first name
 function SearchForm(props) {
-
+console.log(props)
     // const [showResults] = React.useState(false)
     // const onClick = () => setShowResults(true)
 
     return (
         <form className="text-center">
-            <div className="input-group mb-3"  style={{ float: "relative" }}>
+            <div className="input-group mb-3"  style={{ marginLeft: "425px" }}>
                 <label htmlFor="search"></label>
                 <input
                     onChange={props.handleInputChange}
@@ -21,7 +21,7 @@ function SearchForm(props) {
                     id="search"
                 />
                 <div class="input-group-append">
-                <button type="button" class="btn btn-secondary">Make my Playlist!</button>
+                <button type="button" class="btn btn-secondary" onClick={props.handleSearch}>Make my Playlist!</button>
                 </div>
                 {/* <input
                     onChange={props.handleInputChange}
