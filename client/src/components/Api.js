@@ -138,7 +138,7 @@ function Api() {
           .then((res) => {
             //set spotify results to get results for table
             setNewSong(res.data);
-            console.log("++++++++++++++++**********************+++++++++++|||||||||||||||||||||||||||||||||||||||||||||",res.data)
+            console.log("++++++++++++**********************+++++++++++|||||||||||||||||||||||||||||||||||||||||||||",res.data)
             
            
             
