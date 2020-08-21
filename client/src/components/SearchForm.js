@@ -3,13 +3,13 @@ import React from "react";
 
 //handleInputChange will filter the employees by last name or first name
 function SearchForm(props) {
-console.log(props)
+    console.log("!@#$%^&*()(*&^%$#@#$%^&*(*&^%$#@#$%^&*&^%$#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~++++++++++++++++++",props.song)
     // const [showResults] = React.useState(false)
     // const onClick = () => setShowResults(true)
 
     return (
         <form className="text-center">
-            <div className="input-group mb-3"  style={{ marginLeft: "425px" }}>
+            <div className="input-group mb-3" style={{ marginLeft: "425px" }}>
                 <label htmlFor="search"></label>
                 <input
                     onChange={props.handleInputChange}
@@ -20,8 +20,16 @@ console.log(props)
                     placeholder="Search by Artist or Song"
                     id="search"
                 />
-                <div class="input-group-append">
-                <button type="button" class="btn btn-secondary" onClick={props.handleSearch}>Make my Playlist!</button>
+                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                    <div class="btn-group" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown
+                     </button>
+                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                            <button type="button" class="btn btn-secondary" onClick={props.handleSearch}>Search Artist</button>
+                            <button type="button" class="btn btn-secondary" onClick={props.handleSong} >Search Song</button>
+                        </div>
+                    </div>
                 </div>
                 {/* <input
                     onChange={props.handleInputChange}
@@ -36,7 +44,7 @@ console.log(props)
             <div>
                 <a href="#" onClick={props.handleClick}>
                     Want a different location?
-                </a>  
+                </a>
                 {/* { showResults ? 
                 <input
                     id="results"
@@ -46,9 +54,9 @@ console.log(props)
                     value="Insert zip code"
                 >
                 </input> : "" } */}
-      </div>
-    </form>
-  );
+            </div>
+        </form>
+    );
 }
 
 export default SearchForm;
