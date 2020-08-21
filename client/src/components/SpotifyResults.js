@@ -1,57 +1,16 @@
-import React, { useState } from "react";
-
-
-
-// function SpotifyResults(props) {
-//   console.log({ props })
-//   const findArtist = props.SpotifyResults?.filter(artist => props.spotifyResults.artists?.items[0].name);
-//   console.log(props.SpotifyResults.artists?.items[0])
-
-
-//   {findArtist.length ? (
-//     {findArtist.map(artist => {
-//       return (
-//         <table className="table table-striped">
-//           <tr>
-//             <th scope="col">Picture</th>
-//             <th scope="col-3">Artist</th>
-//             <th scope="col-3">Song Title</th>
-
-
-
-
-//           </tr>
-
-//           <tr key={artist.items[0].id}>
-
-//             <td>{this.props.artist?.items[0].picture.medium}</td>
-//             <td>{console.log("SOMETHING WAS HERE")}</td>
-
-
-//           </tr>
-//           </table>
-//       );
-
-//     })};
-//   )}
-
-//       }   
+import React from "react";
 
 function SpotifyResults(props) {
-  console.log("What is props", props)
 
   // const findArtist = props.SpotifyResults?.filter(artist => console.log(props.spotifyResults.artists?.items[0].name));
   const results = props.spotifyResults
 
   let resultsArray = []
 
- 
   if (results.length !== 0) {
     resultsArray = results.artists.items
-    
-
   }
-  console.log("grhlwsdckvnbfgdskdmcnvbfgdetywuiksdfjnhgrtye7uw8iksdjfhyeuw8i"+ resultsArray)
+
   return (
     <div>
       <table className="table table-striped">
@@ -60,9 +19,6 @@ function SpotifyResults(props) {
             <th scope="col">Picture</th>
             <th scope="col-3">Artist</th>
             <th scope="col-3">Song Title</th>
-
-
-
           </tr>
         </thead>
         <tbody>
@@ -86,11 +42,6 @@ function SpotifyResults(props) {
           })}
 
         </tbody>
-
-
-
-
-
       </table>
     </div>
   );
