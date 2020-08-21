@@ -23,7 +23,7 @@ function SearchForm(props) {
                     <div class="btn-group" role="group">
                         <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Dropdown
-                     </button>
+                        </button>
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                             <button type="button" class="btn btn-secondary" onClick={props.handleSearch}>Search Artist</button>
                             <button type="button" class="btn btn-secondary" onClick={props.handleSong} >Search Song</button>
@@ -35,6 +35,8 @@ function SearchForm(props) {
                 <a href="#" onClick={props.handleClick}>
                     Want a different location?
                 </a>
+
+                
                 {/* { showResults ? 
                 <input
                     id="results"
