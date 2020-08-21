@@ -21,7 +21,7 @@ function Api() {
   const [search, setSearch] = useState("");
   const [weatherResults, setWeatherResults] = useState([]);
   const [spotifyResults, setSpotifyResults] = useState([]);
-  const [inputValue, setInputValue] = useState("");
+  const [zipCode, setZipCode] = useState("");
   const [newArtist, setnewArtist] = useState()
   const [song, setNewSong] = useState([])
 
@@ -29,8 +29,20 @@ function Api() {
   const handleClick = event => {
     event.preventDefault();
     console.log('The link was clicked.');
+    handleZip();
 
   };
+
+  const handleZipInputChange = event => {
+    let zipValue = event.target.value;
+    setZipCode(zipValue)
+  }
+
+  const handleZip = event => {
+    event.preventDefault();
+    changeZip(zipCode)
+  }
+  
   //spotifysearchBTN
   const handleSearch = event => {
     event.preventDefault();
@@ -48,9 +60,9 @@ function Api() {
     let value = event.target.value;
     setSearch(value)
   };
+
   // starting Spotify ajax work
   const fetchData = (search) => {
-    console.log("ANOTHER ONE" + search)
     axios({
       //get token
       method: 'post',
@@ -70,8 +82,6 @@ function Api() {
   const spotifySearch = (res, search) => {
     var token = res.data.access_token
     console.log(token);
-    console.log("HERE I AM" + search)
-
 
     //another axios get to search with the token(BQBJZeaaEsHYfSeM7ndR7uDcA2IyenVdLq-q9uFHp2V_CTdVl2NQdyGuxG0TdQy0H9cYGR0ntu-yYw7bh04)
     axios({
@@ -158,7 +168,23 @@ function Api() {
       })
     }
   }
-
+  
+  const changeZip = (zipCode) => {
+    console.log("THIS IS NEW ZIP", zipCode)
+    axios({
+      method: 'get',
+      url: "https://api.openweathermap.org/data/2.5/weather?zip=" + zipCode + ",us&appid=e971f7deaf07913de154d7e7ed5455c5&units=imperial",
+    })
+      .then((res) => {
+        console.log(res.data)
+        setZipCode(res.data)
+       
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      console.log("new zipcode weather", setZipCode)
+    }
 
   useEffect(() => {
     weatherSearch()
@@ -173,6 +199,8 @@ function Api() {
         handleClick={handleClick}
         handleSearch={handleSearch}
         handleSong={handleSong}
+        handleZip={handleZip}
+        handleZipInputChange ={handleZipInputChange}
         search={search}
         song={song}
       />

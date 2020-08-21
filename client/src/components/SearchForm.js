@@ -2,7 +2,7 @@ import React from "react";
 
 
 //handleInputChange will filter the employees by last name or first name
-function SearchForm(props) {
+const SearchForm = (props) => {
     // const [showResults] = React.useState(false)
     // const onClick = () => setShowResults(true)
 
@@ -32,23 +32,24 @@ function SearchForm(props) {
                 </div>
             </div>
             <div>
-                <a href="#" onClick={props.handleClick}>
+                <a href="#" onClick={props.handleClick} >
                     Want a different location?
                 </a>
-
-                
-                {/* { showResults ? 
                 <input
+                    onChange={props.handleZipInputChange}
+                    zipValue={props.inputValue}
                     id="results"
                     type="text"
                     name="zip"
                     placeholder="Enter zip code"
-                    value="Insert zip code"
                 >
-                </input> : "" } */}
+                </input>
+                <button type="button" class="btn btn-danger" onClick={props.handleZip} >New Zip</button>
             </div>
         </form>
     );
 }
+
+
 
 export default SearchForm;
