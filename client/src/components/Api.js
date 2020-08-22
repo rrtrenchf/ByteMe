@@ -16,6 +16,7 @@ import SearchForm from "./SearchForm";
 import SpotifyResults from "./SpotifyResults"
 import SongResults from './SongResults'
 import WeatherResults from './WeatherResults';
+import ZipInput from './ZipInput';
 
 function Api() {
   const [search, setSearch] = useState("");
@@ -42,7 +43,7 @@ function Api() {
     event.preventDefault();
     changeZip(zipCode)
   }
-  
+
   //spotifysearchBTN
   const handleSearch = event => {
     event.preventDefault();
@@ -101,9 +102,9 @@ function Api() {
       .catch((error) => {
         console.log(error);
       })
-    }
+  }
 
-    const fetchSong = (search) => {
+  const fetchSong = (search) => {
     axios({
       //get token
       method: 'post',
@@ -168,7 +169,7 @@ function Api() {
       })
     }
   }
-  
+
   const changeZip = (zipCode) => {
     console.log("THIS IS NEW ZIP", zipCode)
     axios({
@@ -178,13 +179,13 @@ function Api() {
       .then((res) => {
         console.log(res.data)
         setZipCode(res.data)
-       
+
       })
       .catch((error) => {
         console.log(error);
       })
-      console.log("new zipcode weather", setZipCode)
-    }
+    console.log("new zipcode weather", setZipCode)
+  }
 
   useEffect(() => {
     weatherSearch()
@@ -198,11 +199,15 @@ function Api() {
         handleInputChange={handleInputChange}
         handleClick={handleClick}
         handleSearch={handleSearch}
-        handleSong={handleSong}
-        handleZip={handleZip}
-        handleZipInputChange ={handleZipInputChange}
         search={search}
         song={song}
+      />
+
+      <ZipInput
+        handleSong={handleSong}
+        handleZip={handleZip}
+        handleZipInputChange={handleZipInputChange}
+
       />
 
       <SpotifyResults
