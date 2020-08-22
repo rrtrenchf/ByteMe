@@ -11,6 +11,7 @@ function SongResults(props) {
   if (results.length !== 0) {
     resultsArray = results.tracks.items
   }
+  console.log("SongResultsArray",resultsArray)
 
   return (
     <div>
@@ -19,8 +20,12 @@ function SongResults(props) {
         <thead>
           <tr>
             <th scope="col-3">Image</th>
-            <th scope="col">Song Title</th>
-            <th scope="col-3">Artist</th>
+            <th scope="col">Song Title</th> 
+             <th scope="col-3">Artist</th>
+            <th scope="col-3">Add Song</th>
+          
+            
+           
           </tr>
         </thead>
         <tbody>
@@ -32,6 +37,11 @@ function SongResults(props) {
                 </td>
                 <td>
                   {(tracks.name)}
+                </td>
+                <td>
+                  {tracks.artists[0].name}
+                </td>
+                <td> <button type="button" class="btn btn-secondary" onClick={props.handleAddSong} >Search Song</button>
                 </td>
               </tr>
             )

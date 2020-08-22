@@ -16,6 +16,8 @@ import SearchForm from "./SearchForm";
 import SpotifyResults from "./SpotifyResults"
 import SongResults from './SongResults'
 import WeatherResults from './WeatherResults';
+import API from "../utils/API";
+// import Deletebtn from "../components/DeleteBTN"
 
 function Api() {
   const [search, setSearch] = useState("");
@@ -60,6 +62,16 @@ function Api() {
     let value = event.target.value;
     setSearch(value)
   };
+  const handleAddSong = event => {
+    event.preventDefault()
+    // $(document).on("click", "button.add", handleAddSong);
+    API.savePlaylist()
+    // .then(res => 
+    //   setSong(res.data)
+    // )
+    .catch(err => console.log(err));
+
+  }
 
   // starting Spotify ajax work
   const fetchData = (search) => {
@@ -210,6 +222,9 @@ function Api() {
       />
       <SongResults
         song={song}
+        handleAddSong={handleAddSong}
+
+
       />
       <WeatherResults
         weatherResults={weatherResults}

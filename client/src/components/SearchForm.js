@@ -5,7 +5,7 @@ import React from "react";
 const SearchForm = (props) => {
     // const [showResults] = React.useState(false)
     // const onClick = () => setShowResults(true)
-
+    
     return (
         <form className="text-center">
             <div className="input-group mb-3" style={{ marginLeft: "425px" }}>

@@ -11,3 +11,20 @@
 // router.get('/playlists', playlistController.getPlaylists)
 
 // module.exports = router 
+
+const router = require("express").Router();
+const playlistController = require("../../controllers/playlistController");
+
+// Matches with "/api/books"
+router.route("/")
+  .get(playlistController.findAll)
+  .post(playlistController.create);
+
+// Matches with "/api/books/:id"
+router
+  .route("/:id")
+  .get(playlistController.findById)
+  .put(playlistController.update)
+  .delete(playlistController.remove);
+
+module.exports = router;
