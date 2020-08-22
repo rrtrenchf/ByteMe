@@ -27,12 +27,6 @@ function Api() {
   const [song, setNewSong] = useState([])
 
   //Hide and show element on zipcode on click
-  const handleClick = event => {
-    event.preventDefault();
-    console.log('The link was clicked.');
-    handleZip();
-
-  };
 
   const handleZipInputChange = event => {
     let zipValue = event.target.value;
@@ -41,7 +35,7 @@ function Api() {
 
   const handleZip = event => {
     event.preventDefault();
-    changeZip(zipCode)
+    changeZip(zipCode);
   }
 
   //spotifysearchBTN
@@ -197,14 +191,13 @@ function Api() {
     <div>
       <SearchForm
         handleInputChange={handleInputChange}
-        handleClick={handleClick}
         handleSearch={handleSearch}
+        handleSong={handleSong}
         search={search}
         song={song}
       />
 
       <ZipInput
-        handleSong={handleSong}
         handleZip={handleZip}
         handleZipInputChange={handleZipInputChange}
 
