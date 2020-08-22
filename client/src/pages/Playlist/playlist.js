@@ -5,6 +5,7 @@ import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn } from "../../components/Form";
+import SongResults from "../../components/SongResults";
 
 function Playlist() {
   // Setting our component's initial state
@@ -15,10 +16,21 @@ function Playlist() {
   useEffect(() => {
     loadPlaylist()
   }, [])
+  const handleAddSong = event => {
+    event.preventDefault()
+    console.log("Added to db")
+    // $(document).on("click", "button.add", handleAddSong);
+    API.savePlaylist()
+    .then(res => 
+      setPlaylist(res.data)
+    )
+    .catch(err => console.log(err));
+
+  }
 
   // Loads all books and sets them to books
   function loadPlaylist() {
-    API.getPlaylist()
+    API.savePlaylist()
       .then(res => 
         setPlaylist(res.data)
       )
@@ -56,6 +68,9 @@ function Playlist() {
                 Submit Book
               </FormBtn>
             </form>
+            <SongResults
+            handleAddSong={handleAddSong}
+            />
           </Col>
           <Col size="md-6 sm-12">
             {/* <Jumbotron>
@@ -82,6 +97,7 @@ function Playlist() {
           </Col>
         </Row>
       </Container>
+      
     );
   }
 

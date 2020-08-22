@@ -62,16 +62,7 @@ function Api() {
     let value = event.target.value;
     setSearch(value)
   };
-  const handleAddSong = event => {
-    event.preventDefault()
-    // $(document).on("click", "button.add", handleAddSong);
-    API.savePlaylist()
-    // .then(res => 
-    //   setSong(res.data)
-    // )
-    .catch(err => console.log(err));
-
-  }
+ 
 
   // starting Spotify ajax work
   const fetchData = (search) => {
@@ -222,7 +213,7 @@ function Api() {
       />
       <SongResults
         song={song}
-        handleAddSong={handleAddSong}
+        // handleAddSong={handleAddSong}
 
 
       />

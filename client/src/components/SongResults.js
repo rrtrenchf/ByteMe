@@ -4,6 +4,8 @@ import React from "react";
 function SongResults(props) {
 
   const results = props.song
+  const songName = props.song?.tracks?.items[0].name
+  console.log("This is"+ songName)
 
   let resultsArray = []
 
@@ -41,7 +43,7 @@ function SongResults(props) {
                 <td>
                   {tracks.artists[0].name}
                 </td>
-                <td> <button type="button" class="btn btn-secondary" onClick={props.handleAddSong} >Search Song</button>
+                <td> <button type="button" class="btn btn-secondary" onClick={props.handleAddSong} >Add Song</button>
                 </td>
               </tr>
             )

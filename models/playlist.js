@@ -59,11 +59,37 @@
 
 // module.exports = Playlist = mongoose.model("playlist", PlaylistSchema);
 
+// const mongoose = require("mongoose");
+// const Schema = mongoose.Schema;
+
+// const playlistSchema = new Schema({ songName: String, artist: String, weather: String, weatherMatch:Boolean })
+
+// const Playlist = mongoose.model("Playlist", playlistSchema);
+
+// module.exports = Playlist;
+
+
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const playlistSchema = new Schema({ songName: String, artist: String, weather: String, weatherMatch:Boolean })
+const PlaylistSchema = new Schema({
+    songName: {
+        type: String,
+        require: true
+    },
+    artistName: {
+        type: String,
+        require: true
+    },
+    // email: {
+    //     type: String,
+    //     require: true
+    // },
+    // password: {
+    //     type: String,
+    //     require: true
+    // }
+    
+});
 
-const Playlist = mongoose.model("Playlist", playlistSchema);
-
-module.exports = Playlist;
+module.exports = User = mongoose.model("playlist", PlaylistSchema);
