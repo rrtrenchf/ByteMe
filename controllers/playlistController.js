@@ -14,7 +14,7 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  create: function(req, res) {
+  create: function(req, song) {
     db.Playlist
       .create(req.body)
       console.log("The passed in data is", req.body)

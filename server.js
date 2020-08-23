@@ -16,8 +16,8 @@ app.use(express.static("public"));
 
 
 
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+// require("./routes/api/playlistRoute")(app);
+// require("./routes/htmlRoutes")(app);
 
 // serve up static assets
 if (process.env.NODE_ENV === "production") {

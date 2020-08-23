@@ -151,25 +151,37 @@ function Api() {
           'Authorization': ('Bearer ' + token)
         },
         data: ""
+        
       })
         .then((res) => {
+          // console.log("+++++++++++++==========================================", res.data)
           //set spotify results to get results for table
           setNewSong(res.data);
           
+        }).then((res) =>{
+           
+
+          
+          API.savePlaylist(res)
+          // console.log("+++++++++++++==========================================", res)
+          
         })
+        
         .catch((error) => {
           console.log(error);
         })
     }
+    
   }
  
   const handleAddSong = event => {
 
-    API.setPlaylist()
-      
-      .then(res=> setPlaylist)
-        res.json(res.data)
-        console.log("+++++++++++++==========================================")
+    API.savePlaylist(song)
+      let songName = song?.tracks.items[0].name
+      console.log("|||||||||||||||||||||||||||||||",songName)
+      // .then(res => setPlaylist)
+      //   res.json(res.data)
+        console.log("+++++++++++++==========================================", song)
       };
         
   

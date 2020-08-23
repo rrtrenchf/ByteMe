@@ -13,7 +13,7 @@
 // module.exports = router 
 
 const router = require("express").Router();
-const playlistController = require("../controllers/playlistController");
+const playlistController = require("../../controllers/playlistController");
 
 // Matches with "/api/books"
 router.route("/")

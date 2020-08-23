@@ -1,4 +1,5 @@
 import axios from "axios";
+import React from "react"
 export default {
     // API request to server side 
     register(data) {
@@ -22,7 +23,7 @@ export default {
       return axios.delete("/api/playlists/" + id);
     },
     // Saves a book to the database
-    savePlaylist: function(playlist) {
-      return axios.post("/api/playlists",playlist);
+    savePlaylist: function(data) {
+      return axios.post("/api/playlists",data);
     }
   };
