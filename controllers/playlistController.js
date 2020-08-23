@@ -1,4 +1,4 @@
-const db = require("../models/playlist");
+const db = require("../models");
 // Defining methods for the playlistController
 module.exports = {
   findAll: function(req, res) {
@@ -14,12 +14,18 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  create: function(req, song) {
+  create: function(req, res) {
+    console.log("create", req.body)
     db.Playlist
       .create(req.body)
-      console.log("The passed in data is", req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .then(dbModel => {
+        console.log("DATA:", dbModel)
+        res.json(dbModel)
+      })
+      .catch(err => {
+        console.log("ERROR:", err)
+        res.status(422).json(err)
+      });
   },
   update: function(req, res) {
     db.Playlist

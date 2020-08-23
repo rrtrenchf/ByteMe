@@ -24,6 +24,7 @@ export default {
     },
     // Saves a book to the database
     savePlaylist: function(data) {
-      return axios.post("/api/playlists",data);
+      console.log("SavePlaylist",data)
+      return axios.post("/api/playlists",{"songName":data});
     }
   };

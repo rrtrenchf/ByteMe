@@ -43,7 +43,7 @@ function SongResults(props) {
                 <td>
                   {tracks.artists[0].name}
                 </td>
-                <td> <button type="button" class="btn btn-secondary" onClick={props.handleAddSong} >Add Song</button>
+                <td> <button type="button" class="btn btn-secondary" onClick={()=>props.handleAddSong(tracks.name)} >Add Song</button>
                 </td>
               </tr>
             )

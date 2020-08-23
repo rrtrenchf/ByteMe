@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === "production") {
 };
 
 // connect to Mongo DB 
-mongoose.connect('mongodb://localhost/', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: true })
+mongoose.connect('mongodb://localhost/testlist', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: true })
     .then(() => console.log(`Mongo DB Succesfully Connected`))
     .catch(err => console.log(err));
 

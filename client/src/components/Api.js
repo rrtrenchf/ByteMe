@@ -162,7 +162,7 @@ function Api() {
            
 
           
-          API.savePlaylist(res)
+        //  API.savePlaylist(res)
           // console.log("+++++++++++++==========================================", res)
           
         })
@@ -173,15 +173,15 @@ function Api() {
     }
     
   }
- 
-  const handleAddSong = event => {
-
+ //call song to pass to db
+  const handleAddSong = song => {
+    console.log("+++++++++++++==========================================", song)
     API.savePlaylist(song)
-      let songName = song?.tracks.items[0].name
-      console.log("|||||||||||||||||||||||||||||||",songName)
+      //let songName = song?.tracks.items[0].name
+    //  console.log("|||||||||||||||||||||||||||||||",songName)
       // .then(res => setPlaylist)
       //   res.json(res.data)
-        console.log("+++++++++++++==========================================", song)
+        // console.log("+++++++++++++==========================================", song)
       };
         
   
