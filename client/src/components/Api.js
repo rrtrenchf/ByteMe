@@ -31,23 +31,13 @@ function Api() {
   
 
   //Hide and show element on zipcode on click
+
+
   const handleClick = event => {
     event.preventDefault();
-    console.log('The link was clicked.');
-    handleZip();
+    console.log('The link was clicked.')
 
   };
-  
- 
-    // useEffect(()=>{
-    //   savePlaylist()
-    // },[])
-   
-    // $(document).on("click", "button.add", handleAddSong);
-   
-
-    
-
   const handleZipInputChange = event => {
     let zipValue = event.target.value;
     setZipCode(zipValue)
@@ -55,7 +45,7 @@ function Api() {
 
   const handleZip = event => {
     event.preventDefault();
-    changeZip(zipCode)
+    changeZip(zipCode);
   }
 
   //spotifysearchBTN
@@ -259,14 +249,13 @@ function Api() {
     <div>
       <SearchForm
         handleInputChange={handleInputChange}
-        handleClick={handleClick}
         handleSearch={handleSearch}
+        handleSong={handleSong}
         search={search}
         song={song}
       />
 
       <ZipInput
-        handleSong={handleSong}
         handleZip={handleZip}
         handleZipInputChange={handleZipInputChange}
 

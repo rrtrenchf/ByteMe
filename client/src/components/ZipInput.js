@@ -1,30 +1,45 @@
 import React, { useState } from "react";
 
 const ZipInput = (props) => {
-
     const [hidden, setHidden] = useState(true);
     
+    const toggleShow = () => {
+      setHidden(!hidden);
+    };
+  
+    const inputValue = () => {
+     if (props.handleZipInputChange) {
+         return props.handleZipInputChange();
+      }
+    }
+
+    const submit = () => {
+      setHidden(true);
+      if (props.handleZip) props.handleZip();
+    };
+  
     return (
-    <div className="zipInput mb-3" style={{ position: "relative", left: "43%" }}>
-        <a href="#" onClick={props.handleClick} >
-            Want a different location?
+      <div
+        className="zipInput mb-3"
+        style={{ position: "relative", left: "43%" }}
+      >
+        <a href="#" onClick={toggleShow}>
+          Want a different location?
         </a>
-        {hidden ? (
-        <input
-            onChange={props.handleZipInputChange}
-            zipValue={props.inputValue}
-            id="results"
-            type="text"
-            name="zip"
-            placeholder="Enter zip code"
-        >
-        </input> 
+  
+        {!hidden && <input type="text" name="zip" placeholder="Enter ZIP Code" onChange={inputValue} />}
+  
+        {!hidden && (
+          <button type="button" class="btn btn-danger" onClick={submit}>
+            New Zip
+          </button>
         )}
-        {hidden ? (
-        <button type="button" class="btn btn-danger" onClick={({props.handleZip}) => setHidden (true)}>New Zip</button>
-         )}
-    </div>
+      </div>
     );
+  };
+
+export default function App() {
+  return <ZipInput />;
 }
 
-export default ZipInput;
+

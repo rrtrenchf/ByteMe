@@ -3,7 +3,6 @@ import React from "react";
 function WeatherResults(props) {
 
   const results = props.weatherResults
-  console.log("Weather call", results)
   let weatherResults = []
 
   if (results.length !== 0) {
