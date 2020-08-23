@@ -4,8 +4,6 @@ import React from "react";
 function SongResults(props) {
 
   const results = props.song
-  const songName = props.song?.tracks?.items[0].name
-  console.log("This is", props)
 
   let resultsArray = []
 
