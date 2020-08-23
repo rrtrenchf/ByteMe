@@ -24,13 +24,8 @@ export default {
     },
     // Saves a book to the database
     savePlaylist: function(data) {
-<<<<<<< HEAD
       console.log("SavePlaylist",data[0])
       return axios.post("/api/playlists",{"songName":data[0].name, "artistName":data[0].artists[0].name, "weather":data[1]});
-=======
-      console.log("SavePlaylist",data)
-      return axios.post("/api/playlists",{"songName":data.name, "artistName":data.artists[0].name, "weather":data.forecastResults});
->>>>>>> dc837c3926335648b926d2fe0288f861982cddbe
     },
 
     //get weather info
