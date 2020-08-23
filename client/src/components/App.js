@@ -12,8 +12,6 @@ import Register from "../pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import NoMatch from "../pages/NoMatch";
 import axios from "axios";
-// import Playlist from "../../../models/playlist";
-import Playlist from "../pages/Playlist/playlist"
 
 export const App = () => {
 

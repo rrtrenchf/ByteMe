@@ -22,7 +22,7 @@ import ZipInput from './ZipInput';
 
 function Api() {
   const [search, setSearch] = useState("");
-  const [weatherResults, setWeatherResults] = useState([]);
+  const [weatherResults, setWeatherResults] = useState("");
   const [spotifyResults, setSpotifyResults] = useState([]);
   const [zipCode, setZipCode] = useState("");
   const [newArtist, setnewArtist] = useState()
@@ -148,9 +148,7 @@ function Api() {
           setNewSong(res.data);
           
         }).then((res) =>{
-           
-
-          
+      
         //  API.savePlaylist(res)
           // console.log("+++++++++++++==========================================", res)
           
@@ -173,29 +171,12 @@ function Api() {
         // console.log("+++++++++++++==========================================", song)
       };
         
-  
-
     // let res =  await API.savePlaylist()
     // event.preventDefault()
-    
-    
-      
-      
-      
-      
-        
-        
-        
-       
+  
     //   )
     //   .catch(err => console.log(err));
-     
-      
-      
     
-    
-  
-  
 
   //starting weather ajax
   const weatherSearch = () => {
@@ -212,15 +193,25 @@ function Api() {
           url: "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=e971f7deaf07913de154d7e7ed5455c5&units=imperial",
         })
           .then((res) => {
-            console.log(res.data)
-            setWeatherResults(res.data)
+            let results = res.data
+            console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",results.list[0].weather[0].main)
+              if (results?.length !== 0) {
+                let result = ( results?.list[0].weather[0].main)
+                setWeatherResults(result)
+              }
+              
           })
           .catch((error) => {
             console.log(error);
           })
+
       })
     }
   }
+console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++WEATHER RESULTS", weatherResults)
+  const handleAddWeather = (weatherResults) => {
+    API.getWeather(weatherResults)
+   };
 
   const changeZip = (zipCode) => {
     console.log("THIS IS NEW ZIP", zipCode)
@@ -267,11 +258,13 @@ function Api() {
       <SongResults
         song={song}
         handleAddSong={handleAddSong}
-
+        weatherResults={weatherResults}
+        handleAddWeather={handleAddWeather}
 
       />
       <WeatherResults
         weatherResults={weatherResults}
+        handleAddWeather={handleAddWeather}
       />
       {/* < Playlist /> */}
     </div>
