@@ -20,7 +20,7 @@ function Playlist() {
   const loadPlaylist = () => {
     console.log("Added to db")
 
-    API.getPlaylists()
+    API.getPlaylists(playlist)
       .then(res =>
         setPlaylist(res.data)
       )
