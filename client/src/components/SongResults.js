@@ -2,14 +2,6 @@ import React from "react";
 
 
 function SongResults(props) {
-  //weather data
-  const resultsWeather = props.weatherResults
-  console.log("*****************FORECAST**", props.weatherResults)
-  let forecastResults = []
-
-  if (resultsWeather?.length !== 0) {
-    forecastResults = resultsWeather?.list[0].weather[0].main
-  }
 
   //song data
   const results = props.song
@@ -22,8 +14,8 @@ function SongResults(props) {
 
   return (
     <div>
+      {/* <h2>Weather Feel : {forecastResults}</h2> */}
       <table className="table table-striped">
-
         <thead>
           <tr>
             <th scope="col-3">Image</th>
@@ -37,7 +29,6 @@ function SongResults(props) {
           {resultsArray?.map(tracks => {
             return (
               <tr>
-                <td>{forecastResults} Playlist</td>
                 <td>
                   {tracks.album.images.length === 0 ? "" : <img src={tracks.album.images[2].url} />}
                 </td>

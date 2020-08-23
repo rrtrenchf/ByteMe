@@ -2,7 +2,7 @@ const db = require("../models");
 
 module.exports = {
     findAll: function(req, res) {
-        db.Playlist
+        db.Weather
           .find(req.query)
           .sort({ date: -1 })
           .then(dbModel => res.json(dbModel))
@@ -10,7 +10,7 @@ module.exports = {
       },
     create: function(req, res) {
         console.log("create", req.body)
-        db.Playlist
+        db.Weather
           .create(req.body)
           .then(dbModel => {
             console.log("DATA:", dbModel)
