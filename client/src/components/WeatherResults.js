@@ -6,10 +6,10 @@ function WeatherResults(props) {
   console.log("*****************FORECAST**", props.weatherResults)
   let forecastResults = []
 
-  if (resultsWeather?.length !== 0) {
-    forecastResults = resultsWeather?.list[0].weather[0].main
-  }
-  console.log("WEATHER RESULTS", forecastResults)
+  // if (resultsWeather?.length !== 0) {
+  //   forecastResults = resultsWeather?.list[0].weather[0].main
+  // }
+  // console.log("WEATHER RESULTS", forecastResults)
 
   // if (weatherResults.includes("cloud")) {  
   //   //will have a cloudy playlist that pull up here
