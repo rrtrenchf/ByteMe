@@ -148,9 +148,7 @@ function Api() {
           setNewSong(res.data);
           
         }).then((res) =>{
-           
-
-          
+      
         //  API.savePlaylist(res)
           // console.log("+++++++++++++==========================================", res)
           
@@ -173,29 +171,12 @@ function Api() {
         // console.log("+++++++++++++==========================================", song)
       };
         
-  
-
     // let res =  await API.savePlaylist()
     // event.preventDefault()
-    
-    
-      
-      
-      
-      
-        
-        
-        
-       
+  
     //   )
     //   .catch(err => console.log(err));
-     
-      
-      
     
-    
-  
-  
 
   //starting weather ajax
   const weatherSearch = () => {
@@ -221,6 +202,10 @@ function Api() {
       })
     }
   }
+
+  const handleAddWeather = (weatherResults) => {
+    API.getWeather(weatherResults)
+   };
 
   const changeZip = (zipCode) => {
     console.log("THIS IS NEW ZIP", zipCode)
@@ -267,11 +252,13 @@ function Api() {
       <SongResults
         song={song}
         handleAddSong={handleAddSong}
-
+        weatherResults={weatherResults}
+        handleAddWeather={handleAddWeather}
 
       />
       <WeatherResults
         weatherResults={weatherResults}
+        handleAddWeather={handleAddWeather}
       />
       {/* < Playlist /> */}
     </div>
