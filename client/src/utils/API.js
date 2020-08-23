@@ -25,15 +25,15 @@ export default {
     // Saves a book to the database
     savePlaylist: function(data) {
       console.log("SavePlaylist",data[0])
-      return axios.post("/api/playlists",{"songName":data[0].name, "artistName":data[0].artists[0].name, "weather":data[1]});
-    },
+      return axios.post("/api/playlists",{"songName":data[0].name, "artistName":data[0].artists[0].name, "weather":data[1]}); },
 
     //get weather info
-    getWeather: function(data) {
-      return axios.get("/weather",data)
+    getWeather: function() {
+      return axios.get("/api/weather")
     },
-    postWeather: function() {
-      return axios.get("/weather/forecast")
+    postWeather: function(data) {
+      console.log("WEATHER DATA", data)
+      return axios.post("/api/weather",{"weather":data})
     }
   
   };

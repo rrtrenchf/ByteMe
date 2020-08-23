@@ -15,7 +15,6 @@ import axios from "axios";
 import SearchForm from "./SearchForm";
 import SpotifyResults from "./SpotifyResults"
 import SongResults from './SongResults'
-import WeatherResults from './WeatherResults';
 import API from "../utils/API";
 // import Deletebtn from "../components/DeleteBTN"
 import ZipInput from './ZipInput';
@@ -27,33 +26,28 @@ function Api() {
   const [zipCode, setZipCode] = useState("");
   const [newArtist, setnewArtist] = useState()
   const [song, setNewSong] = useState([])
-  const[playlist,setPlaylist]= useState([])
+  const [playlist,setPlaylist]= useState([])
   
 
   //Hide and show element on zipcode on click
 
-
-  const handleClick = event => {
-    event.preventDefault();
-    console.log('The link was clicked.')
-
-  };
   const handleZipInputChange = event => {
     let zipValue = event.target.value;
-    setZipCode(zipValue)
+    setZipCode(zipValue);
+ 
   }
 
   const handleZip = event => {
-    event.preventDefault();
-    changeZip(zipCode);
+    event.preventDefault()
+    changeZip(zipCode)
   }
 
   //spotifysearchBTN
   const handleSearch = event => {
-    event.preventDefault();
+    event.preventDefault()
     fetchData(search)
 
-  };
+  }
   const handleSong = event => {
     event.preventDefault()
     fetchSong(search)
@@ -208,11 +202,12 @@ function Api() {
       })
     }
   }
-console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++WEATHER RESULTS", weatherResults)
-  const handleAddWeather = (weatherResults) => {
+
+  const handleAddWeather = weatherResults => {
     API.getWeather(weatherResults)
    };
 
+   console.log("WEATHER RESULTS ----", weatherResults)
   const changeZip = (zipCode) => {
     console.log("THIS IS NEW ZIP", zipCode)
     axios({
@@ -249,7 +244,8 @@ console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++WEATHER RESULT
       <ZipInput
         handleZip={handleZip}
         handleZipInputChange={handleZipInputChange}
-
+        weatherResults={weatherResults}
+        handleAddWeather={handleAddWeather}
       />
 
       <SpotifyResults
@@ -262,10 +258,7 @@ console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++WEATHER RESULT
         handleAddWeather={handleAddWeather}
 
       />
-      <WeatherResults
-        weatherResults={weatherResults}
-        handleAddWeather={handleAddWeather}
-      />
+     
       {/* < Playlist /> */}
     </div>
   )

@@ -15,10 +15,7 @@ const PlaylistSchema = new Schema({
     //     type: String,
     //     require: true
     // },
-    weather: {
-        type: String,
-        require: true
-    }
+   
 });
 
 const Playlist = mongoose.model("Playlist", PlaylistSchema)
