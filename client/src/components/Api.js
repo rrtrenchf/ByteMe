@@ -203,9 +203,15 @@ function Api() {
     }
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
 console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++WEATHER RESULTS", weatherResults)
   const handleAddWeather = (weatherResults) => {
     API.getWeather(weatherResults)
+=======
+
+  const handleAddWeather = weatherResults => {
+    API.postWeather(weatherResults)
+>>>>>>> dc837c3926335648b926d2fe0288f861982cddbe
 =======
 
   const handleAddWeather = weatherResults => {

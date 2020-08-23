@@ -3,6 +3,7 @@ import React from "react";
 
 function SongResults(props) {
 <<<<<<< HEAD
+<<<<<<< HEAD
   //weather data
   console.log("{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}", props.weatherResults)
   let weatherResults= props.weatherResults
@@ -12,6 +13,8 @@ function SongResults(props) {
   // if (resultsWeather?.length !== 0) {
   //   forecastResults = resultsWeather?.list[0].weather[0].main
   // }
+=======
+>>>>>>> dc837c3926335648b926d2fe0288f861982cddbe
 =======
 >>>>>>> dc837c3926335648b926d2fe0288f861982cddbe
 
@@ -42,7 +45,10 @@ function SongResults(props) {
             return (
               <tr>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 {/* <td>{forecastResults} Playlist</td> */}
+=======
+>>>>>>> dc837c3926335648b926d2fe0288f861982cddbe
 =======
 >>>>>>> dc837c3926335648b926d2fe0288f861982cddbe
                 <td>
