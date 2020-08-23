@@ -15,7 +15,6 @@ import axios from "axios";
 import SearchForm from "./SearchForm";
 import SpotifyResults from "./SpotifyResults"
 import SongResults from './SongResults'
-import WeatherResults from './WeatherResults';
 import API from "../utils/API";
 // import Deletebtn from "../components/DeleteBTN"
 import ZipInput from './ZipInput';
@@ -27,33 +26,28 @@ function Api() {
   const [zipCode, setZipCode] = useState("");
   const [newArtist, setnewArtist] = useState()
   const [song, setNewSong] = useState([])
-  const[playlist,setPlaylist]= useState([])
+  const [playlist,setPlaylist]= useState([])
   
 
   //Hide and show element on zipcode on click
 
-
-  const handleClick = event => {
-    event.preventDefault();
-    console.log('The link was clicked.')
-
-  };
   const handleZipInputChange = event => {
     let zipValue = event.target.value;
-    setZipCode(zipValue)
+    setZipCode(zipValue);
+ 
   }
 
   const handleZip = event => {
-    event.preventDefault();
-    changeZip(zipCode);
+    event.preventDefault()
+    changeZip(zipCode)
   }
 
   //spotifysearchBTN
   const handleSearch = event => {
-    event.preventDefault();
+    event.preventDefault()
     fetchData(search)
 
-  };
+  }
   const handleSong = event => {
     event.preventDefault()
     fetchSong(search)
@@ -148,9 +142,7 @@ function Api() {
           setNewSong(res.data);
           
         }).then((res) =>{
-           
-
-          
+      
         //  API.savePlaylist(res)
           // console.log("+++++++++++++==========================================", res)
           
@@ -173,29 +165,12 @@ function Api() {
         // console.log("+++++++++++++==========================================", song)
       };
         
-  
-
     // let res =  await API.savePlaylist()
     // event.preventDefault()
-    
-    
-      
-      
-      
-      
-        
-        
-        
-       
+  
     //   )
     //   .catch(err => console.log(err));
-     
-      
-      
     
-    
-  
-  
 
   //starting weather ajax
   const weatherSearch = () => {
@@ -222,6 +197,11 @@ function Api() {
     }
   }
 
+  const handleAddWeather = weatherResults => {
+    API.postWeather(weatherResults)
+   };
+
+   console.log("WEATHER RESULTS ----", weatherResults)
   const changeZip = (zipCode) => {
     console.log("THIS IS NEW ZIP", zipCode)
     axios({
@@ -258,7 +238,8 @@ function Api() {
       <ZipInput
         handleZip={handleZip}
         handleZipInputChange={handleZipInputChange}
-
+        weatherResults={weatherResults}
+        handleAddWeather={handleAddWeather}
       />
 
       <SpotifyResults
@@ -267,12 +248,11 @@ function Api() {
       <SongResults
         song={song}
         handleAddSong={handleAddSong}
-
-
-      />
-      <WeatherResults
         weatherResults={weatherResults}
+        handleAddWeather={handleAddWeather}
+
       />
+     
       {/* < Playlist /> */}
     </div>
   )

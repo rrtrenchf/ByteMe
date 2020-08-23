@@ -19,12 +19,22 @@ export default {
       return axios.get("/api/playlists/" + id);
     },
     // Deletes the book with the given id
-    deletPlaylist: function(id) {
+    deletePlaylist: function(id) {
       return axios.delete("/api/playlists/" + id);
     },
     // Saves a book to the database
     savePlaylist: function(data) {
       console.log("SavePlaylist",data)
-      return axios.post("/api/playlists",{"songName":data});
+      return axios.post("/api/playlists",{"songName":data.name, "artistName":data.artists[0].name, "weather":data.forecastResults});
+    },
+
+    //get weather info
+    getWeather: function() {
+      return axios.get("/api/weather")
+    },
+    postWeather: function(data) {
+      console.log("WEATHER DATA", data)
+      return axios.post("/api/weather",{"weather":data})
     }
+  
   };

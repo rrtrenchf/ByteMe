@@ -1,3 +1,4 @@
 module.exports = {
-    Playlist: require("./playlist")
+    Playlist: require("./playlist"),
+    Weather: require("./weather")
 }

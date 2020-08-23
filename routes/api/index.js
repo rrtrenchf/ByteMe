@@ -1,5 +1,7 @@
 const router = require("express").Router();
 const playlistRoutes = require("./playlistRoute");
-// Book routes
-router.use("/playlists", playlistRoutes);
+const weatherRoutes = require("./weather")
+// Playlists routes
+router.use("/playlists", playlistRoutes)
+router.use("/weather", weatherRoutes)
 module.exports = router;
