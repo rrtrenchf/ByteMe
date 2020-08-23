@@ -29,11 +29,12 @@ export default {
     },
 
     //get weather info
-    getWeather: function(data) {
-      return axios.get("/weather",data)
+    getWeather: function() {
+      return axios.get("/api/weather")
     },
-    postWeather: function() {
-      return axios.get("/weather/forecast")
+    postWeather: function(data) {
+      console.log("WEATHER DATA", data)
+      return axios.post("/api/weather",{"weather":data})
     }
   
   };
