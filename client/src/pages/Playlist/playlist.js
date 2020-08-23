@@ -6,6 +6,7 @@ import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn } from "../../components/Form";
 import SongResults from "../../components/SongResults";
+import Api from "../../components/Api"
 
 function Playlist() {
   // Setting our component's initial state
@@ -16,17 +17,18 @@ function Playlist() {
   useEffect(() => {
     loadPlaylist()
   }, [])
-  const handleAddSong = event => {
-    event.preventDefault()
-    console.log("Added to db")
-    // $(document).on("click", "button.add", handleAddSong);
-    API.savePlaylist()
-    .then(res => 
-      setPlaylist(res.data)
-    )
-    .catch(err => console.log(err));
+  // const handleAddSong = event => {
+  //   event.preventDefault()
+    
+  //   // $(document).on("click", "button.add", handleAddSong);
+  //   API.savePlaylist()
+  //   .then(res => 
+  //     console.log("=========================================",res.data),
+     
+  //   )
+  //   .catch(err => console.log(err));
 
-  }
+  // }
 
   // Loads all books and sets them to books
   function loadPlaylist() {
@@ -61,16 +63,17 @@ function Playlist() {
                 name="synopsis"
                 placeholder="Synopsis (Optional)"
               />
-              <FormBtn
+              {/* <FormBtn
                 disabled={!(formObject.artist && formObject.songName)}
                 onClick={() => {}}
               >
                 Submit Book
-              </FormBtn>
+              </FormBtn> */}
             </form>
-            <SongResults
-            handleAddSong={handleAddSong}
-            />
+            {/* <SongResults
+            // handleAddSong={handleAddSong}
+            /> */}
+            {/* <Api/> */}
           </Col>
           <Col size="md-6 sm-12">
             {/* <Jumbotron>

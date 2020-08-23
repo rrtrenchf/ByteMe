@@ -18,6 +18,8 @@ import SongResults from './SongResults'
 import WeatherResults from './WeatherResults';
 import API from "../utils/API";
 // import Deletebtn from "../components/DeleteBTN"
+import Playlist from "../pages/Playlist/playlist"
+import db from "../utils/API"
 
 function Api() {
   const [search, setSearch] = useState("");
@@ -26,6 +28,8 @@ function Api() {
   const [zipCode, setZipCode] = useState("");
   const [newArtist, setnewArtist] = useState()
   const [song, setNewSong] = useState([])
+  const[playlist,setPlaylist]= useState([])
+  
 
   //Hide and show element on zipcode on click
   const handleClick = event => {
@@ -34,6 +38,16 @@ function Api() {
     handleZip();
 
   };
+  
+ 
+    // useEffect(()=>{
+    //   savePlaylist()
+    // },[])
+   
+    // $(document).on("click", "button.add", handleAddSong);
+   
+
+    
 
   const handleZipInputChange = event => {
     let zipValue = event.target.value;
@@ -100,6 +114,7 @@ function Api() {
       .then((res) => {
         //set spotify results to get results for table
         setSpotifyResults(res.data);
+        
       })
       .catch((error) => {
         console.log(error);
@@ -140,12 +155,46 @@ function Api() {
         .then((res) => {
           //set spotify results to get results for table
           setNewSong(res.data);
+          
         })
         .catch((error) => {
           console.log(error);
         })
     }
   }
+ 
+  const handleAddSong = event => {
+
+    API.setPlaylist()
+      
+      .then(res=> setPlaylist)
+        res.json(res.data)
+        console.log("+++++++++++++==========================================")
+      };
+        
+  
+
+    // let res =  await API.savePlaylist()
+    // event.preventDefault()
+    
+    
+      
+      
+      
+      
+        
+        
+        
+       
+    //   )
+    //   .catch(err => console.log(err));
+     
+      
+      
+    
+    
+  
+  
 
   //starting weather ajax
   const weatherSearch = () => {
@@ -213,13 +262,14 @@ function Api() {
       />
       <SongResults
         song={song}
-        // handleAddSong={handleAddSong}
+        handleAddSong={handleAddSong}
 
 
       />
       <WeatherResults
         weatherResults={weatherResults}
       />
+      {/* < Playlist /> */}
     </div>
   )
 };

@@ -5,13 +5,13 @@ function SongResults(props) {
 
   const results = props.song
   const songName = props.song?.tracks?.items[0].name
-  console.log("This is"+ songName)
+  console.log("This is", props)
 
   let resultsArray = []
 
 
-  if (results.length !== 0) {
-    resultsArray = results.tracks.items
+  if (results?.length !== 0) {
+    resultsArray = results?.tracks?.items
   }
   console.log("SongResultsArray",resultsArray)
 
