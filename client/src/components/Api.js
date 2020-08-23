@@ -16,6 +16,8 @@ import SearchForm from "./SearchForm";
 import SpotifyResults from "./SpotifyResults"
 import SongResults from './SongResults'
 import WeatherResults from './WeatherResults';
+import API from "../utils/API";
+// import Deletebtn from "../components/DeleteBTN"
 import ZipInput from './ZipInput';
 
 function Api() {
@@ -25,6 +27,8 @@ function Api() {
   const [zipCode, setZipCode] = useState("");
   const [newArtist, setnewArtist] = useState()
   const [song, setNewSong] = useState([])
+  const[playlist,setPlaylist]= useState([])
+  
 
   //Hide and show element on zipcode on click
   const handleClick = event => {
@@ -33,6 +37,16 @@ function Api() {
     handleZip();
 
   };
+  
+ 
+    // useEffect(()=>{
+    //   savePlaylist()
+    // },[])
+   
+    // $(document).on("click", "button.add", handleAddSong);
+   
+
+    
 
   const handleZipInputChange = event => {
     let zipValue = event.target.value;
@@ -61,6 +75,7 @@ function Api() {
     let value = event.target.value;
     setSearch(value)
   };
+ 
 
   // starting Spotify ajax work
   const fetchData = (search) => {
@@ -98,6 +113,7 @@ function Api() {
       .then((res) => {
         //set spotify results to get results for table
         setSpotifyResults(res.data);
+        
       })
       .catch((error) => {
         console.log(error);
@@ -134,16 +150,62 @@ function Api() {
           'Authorization': ('Bearer ' + token)
         },
         data: ""
+        
       })
         .then((res) => {
+          // console.log("+++++++++++++==========================================", res.data)
           //set spotify results to get results for table
           setNewSong(res.data);
+          
+        }).then((res) =>{
+           
+
+          
+        //  API.savePlaylist(res)
+          // console.log("+++++++++++++==========================================", res)
+          
         })
+        
         .catch((error) => {
           console.log(error);
         })
     }
+    
   }
+ //call song to pass to db
+  const handleAddSong = song => {
+    console.log("+++++++++++++==========================================", song)
+    API.savePlaylist(song)
+      //let songName = song?.tracks.items[0].name
+    //  console.log("|||||||||||||||||||||||||||||||",songName)
+      // .then(res => setPlaylist)
+      //   res.json(res.data)
+        // console.log("+++++++++++++==========================================", song)
+      };
+        
+  
+
+    // let res =  await API.savePlaylist()
+    // event.preventDefault()
+    
+    
+      
+      
+      
+      
+        
+        
+        
+       
+    //   )
+    //   .catch(err => console.log(err));
+     
+      
+      
+    
+    
+  
+  
 
   //starting weather ajax
   const weatherSearch = () => {
@@ -215,10 +277,14 @@ function Api() {
       />
       <SongResults
         song={song}
+        handleAddSong={handleAddSong}
+
+
       />
       <WeatherResults
         weatherResults={weatherResults}
       />
+      {/* < Playlist /> */}
     </div>
   )
 };

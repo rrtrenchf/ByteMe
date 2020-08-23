@@ -1,22 +1,23 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-
-
 const PlaylistSchema = new Schema({
-  name: { 
-    type: String, 
-  },
-  songs: { 
-    type: String
-  },
-  genre: { 
-    type: String 
-  },
-  timeOfDay: { 
-    type: Date, 
-    default: Date.now 
-  }
+   
+    songName: {
+        type: String,
+        require: true
+    },
+    // artistName: {
+    //     type: String,
+    //     require: true
+    // },
+    // email: {
+    //     type: String,
+    //     require: true
+    // },
+    // password: {
+    //     type: String,
+    //     require: true
+    // }
 });
-
-
-module.exports = Playlist = mongoose.model("playlist", PlaylistSchema);
+const Playlist = mongoose.model("Playlist", PlaylistSchema)
+module.exports = Playlist;

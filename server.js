@@ -12,6 +12,12 @@ const app = express();
 // middleware to parse data
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+app.use(express.static("public"));
+
+
+
+// require("./routes/api/playlistRoute")(app);
+// require("./routes/htmlRoutes")(app);
 
 // serve up static assets
 if (process.env.NODE_ENV === "production") {
@@ -19,7 +25,7 @@ if (process.env.NODE_ENV === "production") {
 };
 
 // connect to Mongo DB 
-mongoose.connect('mongodb://localhost/', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: true })
+mongoose.connect('mongodb://localhost/testlist', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: true })
     .then(() => console.log(`Mongo DB Succesfully Connected`))
     .catch(err => console.log(err));
 
