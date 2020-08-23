@@ -6,7 +6,7 @@ const ZipInput = (props) => {
   let forecastResults = []
 
   if (resultsWeather?.length !== 0) {
-    forecastResults = resultsWeather?.list[0].weather[0].main
+    // forecastResults = resultsWeather?.list[0].weather[0].main
   }
   console.log("WEATHER RESULTS", forecastResults)
   //working with changing weather input
