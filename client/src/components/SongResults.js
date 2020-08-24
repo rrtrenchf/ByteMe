@@ -6,16 +6,12 @@ function SongResults(props) {
   //weather data
   console.log("{{{{{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}", props.weatherResults)
   let weatherResults= props.weatherResults
-<<<<<<< HEAD
-=======
   // console.log("*****************FORECAST**", props.weatherResults)
   // let forecastResults = []
 
   // if (resultsWeather?.length !== 0) {
   //   forecastResults = resultsWeather?.list[0].weather[0].main
   // }
-
->>>>>>> 329e9dc86786154070a7b17ae752a05341512fdf
 
   //song data
   const results = props.song
@@ -43,14 +39,7 @@ function SongResults(props) {
           {resultsArray?.map(tracks => {
             return (
               <tr>
-<<<<<<< HEAD
-=======
-
                 {/* <td>{forecastResults} Playlist</td> */}
-
-
-
->>>>>>> 329e9dc86786154070a7b17ae752a05341512fdf
                 <td>
                   {tracks.album.images.length === 0 ? "" : <img src={tracks.album.images[2].url} />}
                 </td>

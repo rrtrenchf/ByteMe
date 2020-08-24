@@ -34,11 +34,10 @@ function Api() {
   const handleZipInputChange = event => {
     let zipValue = event.target.value;
     setZipCode(zipValue);
- 
   }
 
-  const handleZip = event => {
-    event.preventDefault()
+  const handleZip = () => {
+    // event.preventDefault()
     changeZip(zipCode)
   }
 
@@ -46,7 +45,6 @@ function Api() {
   const handleSearch = event => {
     event.preventDefault()
     fetchData(search)
-
   }
   const handleSong = event => {
     event.preventDefault()
@@ -203,11 +201,6 @@ function Api() {
     }
   }
 
-<<<<<<< HEAD
-  const handleAddWeather = weatherResults => {
-    API.getWeather(weatherResults)
-   };
-=======
 console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++WEATHER RESULTS", weatherResults)
   // const handleAddWeather = (weatherResults) => {
   //   API.getWeather(weatherResults)
@@ -216,7 +209,6 @@ console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++WEATHER RESULT
   //   API.postWeather(weatherResults)
 
   //  };
->>>>>>> 329e9dc86786154070a7b17ae752a05341512fdf
 
    console.log("WEATHER RESULTS ----", weatherResults)
   const changeZip = (zipCode) => {
