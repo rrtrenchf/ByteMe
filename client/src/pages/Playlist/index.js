@@ -7,10 +7,14 @@ import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn } from "../../components/Form";
 import SongResults from "../../components/SongResults";
 
-function Playlist() {
+const Playlist = () => {
   // Setting our component's initial state
-  const [playlist, setPlaylist] = useState([])
-  const [formObject, setFormObject] = useState({})
+  const [playlists, setPlaylists] = useState([])
+  const [formObject, setFormObject] = useState({
+    songName: "",
+    artistName: "",
+    weather: ""
+  })
 
   // Load all books and store them with setBooks
   useEffect(() => {
@@ -18,43 +22,49 @@ function Playlist() {
   }, [])
 
   const loadPlaylist = () => {
-    console.log("Added to db")
-
-    API.getPlaylists(playlist)
+    API.getPlaylists()
       .then(res =>
-        setPlaylist(res.data)
+        setPlaylists(res.data)
       )
       .catch(err => console.log(err));
   }
 
-  return (
-    <Container fluid>
-      <Row>
-      <Col size="md-6 sm-12">
-        {playlist.length ? (
-          <List>
-            {playlist.map(playlist => {
-              return (
-                <ListItem key={playlist._id}>
-                  <a href={"/playlist/" + playlist._id}>
-                    <strong>
-                      {playlist.songName} by {playlist.artist}
-                    </strong>
-                  </a>
-                  <DeleteBtn onClick={() => { }} />
-                </ListItem>
-              );
-            })}
-          </List>
-        ) : (
-            <h3>No Results to Display</h3>
-          )}
-      </Col>
+  const deletePlaylist = (id) => {
+    API.deletePlaylist(id)
+      .then(res => loadPlaylist())
+      .catch(err => console.log(err));
+  }
+ 
+    return (
+      <Container fluid>
+        <Row>
+         
+          <Col size="md-6 sm-12">
+            <>
+              {playlists.length ? (
+                <List>
+                  {playlists.map(playlist => {
+                    return (
+                      <ListItem key={playlist._id}>
+                        <a href={"/playlists/" + playlist._id}>
+                          <strong>
+                            {playlist.songName} by {playlist.artistName}
+                          </strong>
+                        </a>
+                        <DeleteBtn onClick={() => deletePlaylist(playlist._id)} />
+                      </ListItem>
+                    );
+                  })}
+                </List>
+              ) : (
+                  <h3>No Results to Display</h3>
+                )}
+            </>
+          </Col>
         </Row>
       </Container >
-      
+
     );
-}
+  }
 
-
-export default Playlist;
+  export default Playlist;

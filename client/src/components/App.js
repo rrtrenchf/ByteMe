@@ -9,6 +9,7 @@ import UserDashboard from "../pages/UserDashboard";
 import PageOne from "../pages/PageOne";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import Playlist from "../pages/Playlist";
 import PrivateRoute from "./PrivateRoute";
 import NoMatch from "../pages/NoMatch";
 import axios from "axios";
@@ -31,7 +32,7 @@ export const App = () => {
                   <Route path="/register" component={Register} />
                   <PrivateRoute path="/dashboard" component={UserDashboard} />
                   <PrivateRoute path="/pageone" component={PageOne} />
-                  {/* <Route path = "/api/playlist" component= {Playlist} /> */}
+                  <Route path="/playlist" component= {Playlist} />
               </Switch>
           </Router>
       </>
