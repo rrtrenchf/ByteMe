@@ -87,11 +87,10 @@ export const Home = () => {
 
     return (
         <div>
-            
+
             <div class="jumbotron" >
-            
-                <h1 class="display-4" style={{ textAlign: "center" }}>Sweater Weather</h1>
-                {/* {makeItRain()} */}
+                <h1 class="display-4" style={{ textAlign:"center",fontFamily: "'Julius Sans One', sans-serif" }}>Sweater Weather</h1>
+
             </div>
             <Router>
                 <div>

@@ -10,7 +10,7 @@ class PlayerApp extends Component {
   constructor() {
     super();
     this.state = {
-      token: "BQAhWU2Od5ivbITMfRg5PxaXDrnNQuyM_w2DlJhZUS_6kWvQ9KtmAj96kwMm78d5suq9IGMJGS9Sl1w5vjyTwAsZAHIwFbu0OhY2O3upr7dkPvRZSDJLlIeSNkLWd_6BCBzFq8dPO9H-gkUWWlUrHnqExLgLxuTafYT2Af17i76ypv9GxUY5swNuQKLkCDwMK3Y3b1Nh12KXgmLlfVGz2hrh6OfEbk42mwpJ1L-2MND3T8dyMnOg_0QYWQVVs1USJQ",
+      token: null,
       item: {
         album: {
           images: [{ url: "" }]
@@ -26,6 +26,7 @@ class PlayerApp extends Component {
 
     this.getCurrentlyPlaying = this.getCurrentlyPlaying.bind(this);
     this.tick = this.tick.bind(this);
+    this.play = this.play.bind(this)
   }
 
 
@@ -43,7 +44,7 @@ class PlayerApp extends Component {
     }
 
     // set interval for polling every 5 seconds
-    this.interval = setInterval(() => this.tick(), 5000);
+    this.interval = setInterval(() => this.tick(), 1000);
   }
 
   componentWillUnmount() {
@@ -61,8 +62,8 @@ class PlayerApp extends Component {
   getCurrentlyPlaying(token) {
     // Make a call using the token
     $.ajax({
-      url: "https://api.spotify.com/v1/me/player/play",
-      type: "PUT",
+      url: "https://api.spotify.com/v1/me/player/",
+      type: "GET",
       beforeSend: xhr => {
         xhr.setRequestHeader("Authorization", "Bearer " + token);
       },
@@ -85,6 +86,51 @@ class PlayerApp extends Component {
       }
     });
   }
+  ///player/queue?uri=
+   play(){
+       if(this.state.is_playing){
+
+       
+    $.ajax({
+        url: "https://api.spotify.com/v1/me/player/pause",
+        type: "PUT",
+        beforeSend: xhr => {
+          xhr.setRequestHeader("Authorization", "Bearer " + this.state.token);
+        },
+        success: data => {
+          // Checks if the data is not empty
+          console.log("PLAY DATA",data)
+        }
+      });
+    }else{
+      $.ajax({
+        url: "https://api.spotify.com/v1/me/player/play",
+        type: "PUT",
+        beforeSend: xhr => {
+          xhr.setRequestHeader("Authorization", "Bearer " + this.state.token);
+        },
+        success: data => {
+          // Checks if the data is not empty
+          console.log("PLAY DATA",data)
+        }
+      });
+    }
+  }
+  AddQueue(){
+    $.ajax({
+        url: "https://api.spotify.com/v1/me/player/queue=4JehYebiI9JE8sR8MisGVb",
+        type: "POST",
+        beforeSend: xhr => {
+          xhr.setRequestHeader("Authorization", "Bearer " + "BQBQp9Ehe71-6N6_zr670zMI6rTnxG327o2pka4qqt_hQP_-XJq4Yg1Gw9bTm9SvfysI0yrZIxmWVtNvhmE");
+        },
+        success: data => {
+          // Checks if the data is not empty
+          console.log("QUEUE DATA",data)
+  
+         
+        }
+      });
+  }
 
   render() {
     return (
@@ -102,11 +148,14 @@ class PlayerApp extends Component {
             </a>
           )}
           {this.state.token && !this.state.no_data && (
+              <div>
             <Player
               item={this.state.item}
               is_playing={this.state.is_playing}
               progress_ms={this.state.progress_ms}
             />
+            <button onClick={this.play}>Pause/Play</button>
+            </div>
           )}
           {this.state.no_data && (
             <p>

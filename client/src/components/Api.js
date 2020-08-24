@@ -154,8 +154,6 @@ function Api() {
 
 
   //starting weather ajax
-  
-
   const weatherSearch = () => {
     //weather API Call
     if ("geolocation" in navigator) {
@@ -231,7 +229,6 @@ function Api() {
         handleZip={handleZip}
         handleZipInputChange={handleZipInputChange}
         weatherResults={weatherResults}
-
         zipCode={zipCode}
       />
 
@@ -249,6 +246,7 @@ function Api() {
       {/* < Playlist /> */}
       <PlayerApp/>
 
+      {/* < Playlist /> */}
     </div>
   )
 };
