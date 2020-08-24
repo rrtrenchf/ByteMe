@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 
 const ZipInput = (props) => {
   //getting weather results
@@ -8,7 +8,6 @@ const ZipInput = (props) => {
 
   const toggleShow = () => {
     setHidden(!hidden);
-    if (props.handleAddWeather) props.handleAddWeather();
   };
   
   const submit = () => {

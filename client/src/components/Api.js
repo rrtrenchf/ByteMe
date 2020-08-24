@@ -179,10 +179,10 @@ function Api() {
     }
   }
 
-  const handleAddWeather = zipCode => {
-    console.log("&&&&&+++++++++++++===================================", zipCode)
-    API.postWeather(zipCode)
-  };
+  // const handleAddWeather = zipCode => {
+  //   console.log("&&&&&+++++++++++++===================================", zipCode)
+  //   API.postWeather(zipCode)
+  // };
 
   const changeZip = (zipCode) => {
     console.log("THIS IS NEW ZIP", zipCode)
@@ -191,19 +191,21 @@ function Api() {
       url: "https://api.openweathermap.org/data/2.5/weather?zip=" + zipCode + ",us&appid=e971f7deaf07913de154d7e7ed5455c5&units=imperial",
     })
       .then((res) => {
-        let results = res.data
-        console.log("******************>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", results.weather[0].main)
-        if (results?.length !== 0) {
-          let result = (results?.weather[0].main)
-          setZipCode(result)
-         }
-        })
+        let newZipRes = (res.data)
+        console.log("??????????????????///////////////////////////////////////////||||||||||||||||||||||||||||||||||||", newZipRes.weather[0].main)
+        setZipCode(newZipRes)
+        // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",results.list[0].weather[0].main)
+        if (handleZip) {
+          setWeatherResults(newZipRes.weather[0].main)
+        }
+      })
       .catch((error) => {
         console.log(error);
       })
+    console.log("new zipcode weather", setZipCode)
   }
   console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++WEATHER RESULTS", zipCode)
-  
+
   useEffect(() => {
     weatherSearch()
   }, [])
@@ -224,7 +226,7 @@ function Api() {
         handleZip={handleZip}
         handleZipInputChange={handleZipInputChange}
         weatherResults={weatherResults}
-        handleAddWeather={handleAddWeather}
+
         zipCode={zipCode}
       />
 
@@ -236,8 +238,6 @@ function Api() {
         handleAddSong={handleAddSong}
         weatherResults={weatherResults}
         zipCode={zipCode}
-        handleAddWeather={handleAddWeather}
-
       />
 
       {/* < Playlist /> */}
