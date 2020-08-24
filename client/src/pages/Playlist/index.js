@@ -38,9 +38,9 @@ const Playlist = () => {
     <Container fluid>
       <Row>
       <Col size="md-6 sm-12">
-        {playlist.length ? (
+        {playlists.length ? (
           <List>
-            {playlist.map(playlist => {
+            {playlists.map(playlist => {
               return (
                 <ListItem key={playlist._id}>
                   <a href={"/playlist/" + playlist._id}>
