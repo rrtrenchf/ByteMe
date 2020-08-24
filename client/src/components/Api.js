@@ -203,9 +203,20 @@ function Api() {
     }
   }
 
+<<<<<<< HEAD
   const handleAddWeather = weatherResults => {
     API.getWeather(weatherResults)
    };
+=======
+console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++WEATHER RESULTS", weatherResults)
+  // const handleAddWeather = (weatherResults) => {
+  //   API.getWeather(weatherResults)
+
+  // const handleAddWeather = weatherResults => {
+  //   API.postWeather(weatherResults)
+
+  //  };
+>>>>>>> 329e9dc86786154070a7b17ae752a05341512fdf
 
    console.log("WEATHER RESULTS ----", weatherResults)
   const changeZip = (zipCode) => {
@@ -245,7 +256,7 @@ function Api() {
         handleZip={handleZip}
         handleZipInputChange={handleZipInputChange}
         weatherResults={weatherResults}
-        handleAddWeather={handleAddWeather}
+        // handleAddWeather={handleAddWeather}
       />
 
       <SpotifyResults
@@ -255,7 +266,7 @@ function Api() {
         song={song}
         handleAddSong={handleAddSong}
         weatherResults={weatherResults}
-        handleAddWeather={handleAddWeather}
+        // handleAddWeather={handleAddWeather}
 
       />
      
