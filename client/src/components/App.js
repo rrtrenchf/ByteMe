@@ -13,6 +13,7 @@ import Playlist from "../pages/Playlist";
 import PrivateRoute from "./PrivateRoute";
 import NoMatch from "../pages/NoMatch";
 import axios from "axios";
+import Api from './Api';
 
 export const App = () => {
 
@@ -33,6 +34,7 @@ export const App = () => {
                   <PrivateRoute path="/dashboard" component={UserDashboard} />
                   <PrivateRoute path="/pageone" component={PageOne} />
                   <Route path="/playlist" component= {Playlist} />
+
               </Switch>
           </Router>
       </>

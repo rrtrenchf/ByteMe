@@ -28,39 +28,36 @@ const Playlist = () => {
       )
       .catch(err => console.log(err));
   }
-
-  const deletePlaylist = (id) => {
+  function deletePlaylist(id) {
     API.deletePlaylist(id)
       .then(res => loadPlaylist())
       .catch(err => console.log(err));
   }
- 
-    return (
-      <Container fluid>
-        <Row>
-         
-          <Col size="md-6 sm-12">
-            <>
-              {playlists.length ? (
-                <List>
-                  {playlists.map(playlist => {
-                    return (
-                      <ListItem key={playlist._id}>
-                        <a href={"/playlists/" + playlist._id}>
-                          <strong>
-                            {playlist.songName} by {playlist.artistName}
-                          </strong>
-                        </a>
-                        <DeleteBtn onClick={() => deletePlaylist(playlist._id)} />
-                      </ListItem>
-                    );
-                  })}
-                </List>
-              ) : (
-                  <h3>No Results to Display</h3>
-                )}
-            </>
-          </Col>
+
+  return (
+    <Container fluid>
+      <Row>
+      <Col size="md-6 sm-12">
+        {playlist.length ? (
+          <List>
+            {playlist.map(playlist => {
+              return (
+                <ListItem key={playlist._id}>
+                  <a href={"/playlist/" + playlist._id}>
+              <h1>{playlist.weather}</h1>
+                    <strong>
+                      {playlist.songName} by {playlist.artistName}
+                    </strong>
+                  </a>
+                  <DeleteBtn onClick={() => deletePlaylist(playlist._id)} />
+                </ListItem>
+              );
+            })}
+          </List>
+        ) : (
+            <h3>No Results to Display</h3>
+          )}
+      </Col>
         </Row>
       </Container >
 
