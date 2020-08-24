@@ -33,7 +33,7 @@ export default {
     },
     postWeather: function(data) {
       console.log("WEATHER DATA", data)
-      return axios.post("/api/weather",{"weather":data})
+      return axios.post("/api/weather",{"weather":data,"updatedZip":data})
     }
   
   };

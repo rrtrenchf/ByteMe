@@ -28,18 +28,18 @@ function Api() {
   const [zipCode, setZipCode] = useState("");
   const [newArtist, setnewArtist] = useState()
   const [song, setNewSong] = useState([])
-  const [playlist,setPlaylist]= useState([])
-  
+  const [playlist, setPlaylist] = useState([])
+
 
   //Hide and show element on zipcode on click
 
   const handleZipInputChange = event => {
     let zipValue = event.target.value;
     setZipCode(zipValue);
+    event.preventDefault();
   }
 
   const handleZip = () => {
-    // event.preventDefault()
     changeZip(zipCode)
   }
 
@@ -59,7 +59,7 @@ function Api() {
     let value = event.target.value;
     setSearch(value)
   };
- 
+
 
   // starting Spotify ajax work
   const fetchData = (search) => {
@@ -97,7 +97,7 @@ function Api() {
       .then((res) => {
         //set spotify results to get results for table
         setSpotifyResults(res.data);
-        
+
       })
       .catch((error) => {
         console.log(error);
@@ -134,43 +134,23 @@ function Api() {
           'Authorization': ('Bearer ' + token)
         },
         data: ""
-        
       })
         .then((res) => {
-          // console.log("+++++++++++++==========================================", res.data)
           //set spotify results to get results for table
           setNewSong(res.data);
-          
-        }).then((res) =>{
-      
-        //  API.savePlaylist(res)
-          // console.log("+++++++++++++==========================================", res)
-          
         })
-        
         .catch((error) => {
           console.log(error);
         })
     }
-    
+
   }
- //call song to pass to db
+  //call song to pass to db
   const handleAddSong = song => {
     console.log("+++++++++++++==========================================", song)
     API.savePlaylist(song)
-      //let songName = song?.tracks.items[0].name
-    //  console.log("|||||||||||||||||||||||||||||||",songName)
-      // .then(res => setPlaylist)
-      //   res.json(res.data)
-        // console.log("+++++++++++++==========================================", song)
-      };
-        
-    // let res =  await API.savePlaylist()
-    // event.preventDefault()
-  
-    //   )
-    //   .catch(err => console.log(err));
-    
+  };
+
 
   //starting weather ajax
   
@@ -190,31 +170,24 @@ function Api() {
         })
           .then((res) => {
             let results = res.data
-            console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",results.list[0].weather[0].main)
-              if (results?.length !== 0) {
-                let result = ( results?.list[0].weather[0].main)
-                setWeatherResults(result)
-              }
-              
+            console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", results.list[0].weather[0].main)
+            if (results?.length !== 0) {
+              let result = (results?.list[0].weather[0].main)
+              setWeatherResults(result)
+            }
           })
           .catch((error) => {
             console.log(error);
           })
-
       })
     }
   }
 
-console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++WEATHER RESULTS", weatherResults)
-  // const handleAddWeather = (weatherResults) => {
-  //   API.getWeather(weatherResults)
+  // const handleAddWeather = zipCode => {
+  //   console.log("&&&&&+++++++++++++===================================", zipCode)
+  //   API.postWeather(zipCode)
+  // };
 
-  // const handleAddWeather = weatherResults => {
-  //   API.postWeather(weatherResults)
-
-  //  };
-
-   console.log("WEATHER RESULTS ----", weatherResults)
   const changeZip = (zipCode) => {
     console.log("THIS IS NEW ZIP", zipCode)
     axios({
@@ -222,15 +195,20 @@ console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++WEATHER RESULT
       url: "https://api.openweathermap.org/data/2.5/weather?zip=" + zipCode + ",us&appid=e971f7deaf07913de154d7e7ed5455c5&units=imperial",
     })
       .then((res) => {
-        console.log(res.data)
-        setZipCode(res.data)
-
+        let newZipRes = (res.data)
+        console.log("??????????????????///////////////////////////////////////////||||||||||||||||||||||||||||||||||||", newZipRes.weather[0].main)
+        setZipCode(newZipRes)
+        // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",results.list[0].weather[0].main)
+        if (handleZip) {
+          setWeatherResults(newZipRes.weather[0].main)
+        }
       })
       .catch((error) => {
         console.log(error);
       })
     console.log("new zipcode weather", setZipCode)
   }
+  console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++WEATHER RESULTS", zipCode)
 
   useEffect(() => {
     weatherSearch()
@@ -252,7 +230,8 @@ console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++WEATHER RESULT
         handleZip={handleZip}
         handleZipInputChange={handleZipInputChange}
         weatherResults={weatherResults}
-        // handleAddWeather={handleAddWeather}
+
+        zipCode={zipCode}
       />
 
       <SpotifyResults
@@ -262,12 +241,12 @@ console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++WEATHER RESULT
         song={song}
         handleAddSong={handleAddSong}
         weatherResults={weatherResults}
-        // handleAddWeather={handleAddWeather}
+        zipCode={zipCode}
 
       />
-     
-      < Playlist />
-      
+
+      {/* < Playlist /> */}
+
     </div>
   )
 };

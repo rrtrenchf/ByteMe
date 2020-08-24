@@ -2,31 +2,24 @@ import React, { useState } from "react";
 
 const ZipInput = (props) => {
   //getting weather results
-  const resultsWeather = props.weatherResults
-  let forecastResults = []
-
-  if (resultsWeather?.length !== 0) {
-    // forecastResults = resultsWeather?.list[0].weather[0].main
-  }
-  console.log("WEATHER RESULTS", forecastResults)
+  const zipCode= props.zipCode
   //working with changing weather input
   const [hidden, setHidden] = useState(true);
 
   const toggleShow = () => {
     setHidden(!hidden);
-    if (props.handleAddWeather) props.handleAddWeather();
   };
-
   
   const submit = () => {
     setHidden(true);
-    if (props.handleZip) props.handleZip();
-
+    if (props.handleZip) {
+      props.handleZip(zipCode);
+    }
   };
 
   return (
     <div>
-      <h2>{forecastResults}</h2>
+  
     <div
       className="zipInput mb-3"
       style={{ position: "relative", left: "43%" }}
@@ -59,9 +52,7 @@ const ZipInput = (props) => {
 };
 
 export default ZipInput;
-// function ZipInput() {
-//   return <ZipInput />;
-// }
+
 
 
   // if (weatherResults.includes("cloud")) {  

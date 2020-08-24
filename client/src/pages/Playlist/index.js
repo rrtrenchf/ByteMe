@@ -7,10 +7,14 @@ import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn } from "../../components/Form";
 import SongResults from "../../components/SongResults";
 
-function Playlist() {
+const Playlist = () => {
   // Setting our component's initial state
-  const [playlist, setPlaylist] = useState([])
-  const [formObject, setFormObject] = useState({})
+  const [playlists, setPlaylists] = useState([])
+  const [formObject, setFormObject] = useState({
+    songName: "",
+    artistName: "",
+    weather: ""
+  })
 
   // Load all books and store them with setBooks
   useEffect(() => {
@@ -18,11 +22,9 @@ function Playlist() {
   }, [])
 
   const loadPlaylist = () => {
-    console.log("Added to db")
-
-    API.getPlaylists(playlist)
+    API.getPlaylists()
       .then(res =>
-        setPlaylist(res.data)
+        setPlaylists(res.data)
       )
       .catch(err => console.log(err));
   }
@@ -58,9 +60,8 @@ function Playlist() {
       </Col>
         </Row>
       </Container >
-      
+
     );
-}
+  }
 
-
-export default Playlist;
+  export default Playlist;
