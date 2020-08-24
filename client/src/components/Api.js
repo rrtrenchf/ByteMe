@@ -18,8 +18,7 @@ import SongResults from './SongResults'
 import API from "../utils/API";
 // import Deletebtn from "../components/DeleteBTN"
 import ZipInput from './ZipInput';
-import Playlist from "../pages/Playlist/index"
-
+import WeatherResults from './WeatherResults';
 
 function Api() {
   const [search, setSearch] = useState("");
@@ -153,8 +152,6 @@ function Api() {
 
 
   //starting weather ajax
-  
-
   const weatherSearch = () => {
     //weather API Call
     if ("geolocation" in navigator) {
@@ -230,7 +227,6 @@ function Api() {
         handleZip={handleZip}
         handleZipInputChange={handleZipInputChange}
         weatherResults={weatherResults}
-
         zipCode={zipCode}
       />
 
@@ -245,8 +241,11 @@ function Api() {
 
       />
 
-      {/* < Playlist /> */}
+      <WeatherResults
+        weatherResults={weatherResults}
+      />
 
+      {/* < Playlist /> */}
     </div>
   )
 };

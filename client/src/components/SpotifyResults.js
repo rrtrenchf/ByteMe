@@ -14,17 +14,16 @@ function SpotifyResults(props) {
   return (
     <div>
       <table className="table table-striped">
-        <thead>
+        <thead className="col-12">
           <tr>
-            <th scope="col">Picture</th>
-            <th scope="col-3">Artist</th>
-            <th scope="col-3">Song Title</th>
+            <th className="col-4">Picture</th>
+            <th className="col-6">Artist</th>
+            <th className="col-2">Genre</th>
           </tr>
         </thead>
         <tbody>
           {/* filter out search text against results list, loop through list to pull last name we are looking for*/}
           {resultsArray.map(artist => {
-
             return (
               <tr>
                 <td>
@@ -34,7 +33,10 @@ function SpotifyResults(props) {
                   {(artist.name)}
                 </td>
                 <td>
-                  {console.log("TABLE DATA")}
+                  {artist.genres.length === 0 ? "" : artist.genres}
+                </td>
+                <td>
+                  {console.log("TABLE DATA", artist[0])}
                 </td>
               </tr>
 

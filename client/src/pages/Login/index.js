@@ -29,15 +29,35 @@ const Login = (props) => {
     }
 
     return (
-        <div className="form-container">
-            <Header as='h2' secondary="true" textAlign='center'>
-                Login to your account
+   
+        <div className="body" style={{ height: "100%" }}>
+            <div className="loginBackground"
+                style={{
+                    backgroundImage: "url('https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(11).jpg')",
+                    height: "50%",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover",
+                }}>
+                <p class="py-5 text-center"></p>
+                <h1 className="header"
+                style={{
+                    textAlign: "center",
+                    fontFamily: "'Julius Sans One', sans-serif"
+                }}
+                >Sweater Weather</h1>
+                <div className="form-container">
+                    <Header as='h2' secondary="true" textAlign='center'>
+                        Login to your account
                 </Header>
-            <LoginForm
-                renderMessage={renderFormMessage}
-                buttonText="Login"
-                onSubmit={onFormSubmit}
-            />
+                    <LoginForm
+                        renderMessage={renderFormMessage}
+                        buttonText="Login"
+                        onSubmit={onFormSubmit}
+                    />
+                </div>
+            </div>
+
         </div>
     )
 }
