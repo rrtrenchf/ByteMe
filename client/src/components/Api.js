@@ -19,6 +19,7 @@ import API from "../utils/API";
 // import Deletebtn from "../components/DeleteBTN"
 import ZipInput from './ZipInput';
 import Playlist from "../pages/Playlist/index"
+import PlayerApp from "../components/PlayerApi"
 
 
 function Api() {
@@ -246,6 +247,7 @@ function Api() {
       />
 
       {/* < Playlist /> */}
+      <PlayerApp/>
 
     </div>
   )
