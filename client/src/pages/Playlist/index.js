@@ -26,6 +26,11 @@ function Playlist() {
       )
       .catch(err => console.log(err));
   }
+  function deletePlaylist(id) {
+    API.deletePlaylist(id)
+      .then(res => loadPlaylist())
+      .catch(err => console.log(err));
+  }
 
   return (
     <Container fluid>
@@ -37,11 +42,12 @@ function Playlist() {
               return (
                 <ListItem key={playlist._id}>
                   <a href={"/playlist/" + playlist._id}>
+              <h1>{playlist.weather}</h1>
                     <strong>
-                      {playlist.songName} by {playlist.artist}
+                      {playlist.songName} by {playlist.artistName}
                     </strong>
                   </a>
-                  <DeleteBtn onClick={() => { }} />
+                  <DeleteBtn onClick={() => deletePlaylist(playlist._id)} />
                 </ListItem>
               );
             })}
