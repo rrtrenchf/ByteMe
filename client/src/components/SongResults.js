@@ -13,7 +13,6 @@ function SongResults(props) {
   //   forecastResults = resultsWeather?.list[0].weather[0].main
   // }
 
-
   //song data
   const results = props.song
   let resultsArray = []
@@ -40,11 +39,7 @@ function SongResults(props) {
           {resultsArray?.map(tracks => {
             return (
               <tr>
-
                 {/* <td>{forecastResults} Playlist</td> */}
-
-
-
                 <td>
                   {tracks.album.images.length === 0 ? "" : <img src={tracks.album.images[2].url} />}
                 </td>

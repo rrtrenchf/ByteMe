@@ -27,7 +27,6 @@ export default {
       console.log("SavePlaylist",data[0])
       return axios.post("/api/playlists",{"songName":data[0].name, "artistName":data[0].artists[0].name, "weather":data[1]});
     },
-
     //get weather info
     getWeather: function() {
       return axios.get("/api/weather")

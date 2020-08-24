@@ -37,7 +37,15 @@ const ZipInput = (props) => {
       <div
        className="newZipInput mb-3"
        style={{ position: "relative" }}>
-      {!hidden && <input type="text" name="zip" placeholder="Enter ZIP Code" />}
+      {!hidden && 
+       <input 
+        type="text" 
+        name="zip" 
+        placeholder="Enter ZIP Code"
+        onChange={props.handleZipInputChange}
+        value={props.zipCode}
+       />
+      }
 
       {!hidden && (
         <button type="button" class="btn btn-danger" onClick={submit}>

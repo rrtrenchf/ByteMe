@@ -34,11 +34,10 @@ function Api() {
   const handleZipInputChange = event => {
     let zipValue = event.target.value;
     setZipCode(zipValue);
- 
   }
 
-  const handleZip = event => {
-    event.preventDefault()
+  const handleZip = () => {
+    // event.preventDefault()
     changeZip(zipCode)
   }
 
@@ -46,7 +45,6 @@ function Api() {
   const handleSearch = event => {
     event.preventDefault()
     fetchData(search)
-
   }
   const handleSong = event => {
     event.preventDefault()
