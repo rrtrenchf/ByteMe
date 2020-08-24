@@ -10,11 +10,11 @@ import SongResults from "../../components/SongResults";
 const Playlist = () => {
   // Setting our component's initial state
   const [playlists, setPlaylists] = useState([])
-  const [formObject, setFormObject] = useState({
-    songName: "",
-    artistName: "",
-    weather: ""
-  })
+  // const [formObject, setFormObject] = useState({
+  //   songName: "",
+  //   artistName: "",
+  //   weather: ""
+  // })
 
   // Load all books and store them with setBooks
   useEffect(() => {
@@ -38,9 +38,9 @@ const Playlist = () => {
     <Container fluid>
       <Row>
       <Col size="md-6 sm-12">
-        {playlist.length ? (
+        {playlists.length ? (
           <List>
-            {playlist.map(playlist => {
+            {playlists.map(playlist => {
               return (
                 <ListItem key={playlist._id}>
                   <a href={"/playlist/" + playlist._id}>
