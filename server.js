@@ -25,7 +25,8 @@ if (process.env.NODE_ENV === "production") {
 };
 
 // connect to Mongo DB 
-mongoose.connect(process.env.MONG0DB_URI  || 'mongodb://localhost/testlist', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: true })
+mongoose.connect(
+    process.env.MONG0DB_URI  || 'mongodb://sweaterweater:playlist1mongodb://<dbuser>:<dbpassword>@ds349175.mlab.com:49175/heroku_ns04vcwl', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: true })
     .then(() => console.log(`Mongo DB Succesfully Connected`))
     .catch(err => console.log(err));
 
