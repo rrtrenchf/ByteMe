@@ -15,24 +15,24 @@ function SpotifyResults(props) {
     <div>
       <table className="table table-striped">
         <thead className="col-12">
-          <tr>
-            <th className="col-4">Picture</th>
+          <tr style={{ color: "white", fontFamily: "'Montserrat', sans-serif", }}>
+            <th className="col-3">Picture</th>
             <th className="col-6">Artist</th>
-            <th className="col-2">Genre</th>
+            <th className="col-3">Genre</th>
           </tr>
         </thead>
         <tbody>
           {/* filter out search text against results list, loop through list to pull last name we are looking for*/}
           {resultsArray.map(artist => {
             return (
-              <tr>
-                <td>
+              <tr style={{ color: "white", fontFamily: "'Montserrat', sans-serif", }}>
+                <td className="col-3"> 
                   {artist.images.length === 0 ? "" : <img src={artist.images[2].url} />}
                 </td>
-                <td>
+                <td className="col-6">
                   {(artist.name)}
                 </td>
-                <td>
+                <td className="col-3">
                   {artist.genres.length === 0 ? "" : artist.genres}
                 </td>
                 <td>

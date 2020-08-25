@@ -20,7 +20,7 @@ const SongResults = (props) => {
       {/* <h2>Weather Feel : {forecastResults}</h2> */}
       <table className="table table-striped">
         <thead>
-          <tr>
+          <tr style={{ color: "white", fontFamily: "'Montserrat', sans-serif", }}>
             <th scope="col-3">Image</th>
             <th scope="col">Song Title</th> 
             <th scope="col-3">Artist</th>
@@ -31,7 +31,7 @@ const SongResults = (props) => {
         <tbody>
           {resultsArray?.map(tracks => {
             return (
-              <tr>
+              <tr style={{ color: "white", fontFamily: "'Montserrat', sans-serif", }}>
                 <td>
                   {tracks.album.images.length === 0 ? "" : <img src={tracks.album.images[2].url} />}
                 </td>
