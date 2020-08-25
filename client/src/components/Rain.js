@@ -1,5 +1,5 @@
 import React from 'react'
-import $ from "jquery"
+import * as $ from "jquery";
 
 
 
@@ -52,10 +52,10 @@ var makeItRain = function () {
     <body class="back-row-toggle splat-toggle">
         <div class="rain front-row"></div>
         <div class="rain back-row"></div>
-        <div class="toggles">
+        {/* <div class="toggles"></div>
             <div class="splat-toggle toggle active">SPLAT</div>
-            <div class="back-row-toggle toggle active">BACK<br>ROW</div>
+            <div class="back-row-toggle toggle active">BACK<br>ROW<br/></div>
             <div class="single-toggle toggle">SINGLE</div>
-        </div>
+        </div> */}
     </body>
   );
