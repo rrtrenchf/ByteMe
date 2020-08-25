@@ -234,9 +234,9 @@ function Api() {
         zipCode={zipCode}
       />
 
-      <SpotifyResults
+      {/* <SpotifyResults
         spotifyResults={spotifyResults}
-      />
+      /> */}
       <SongResults
         song={song}
         handleAddSong={handleAddSong}
