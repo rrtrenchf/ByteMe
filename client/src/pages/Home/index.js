@@ -42,18 +42,20 @@ export const Home = () => {
             </div>
             <div className="col-12 waveContainer" >
                 <Router>
-                    <div className="jumbotron" style={{}}>
-                        <header className="display-1"
+                    <div className="jumbotron-fluid" style={{ margin: "50px" }}>
+                        <div className="container">
+                        <h1 className="display-4"
                             style={{
                                 // backgroundColor: "transparent",
                                 textAlign: "center",
                                 fontFamily: "'Fjalla One', sans-serif",
                                 fontSize: "80px",
                                 fontWeight: "bold",
-                                color: "black"
+                                color: "gry"
                             }}>
                             Sweater Weather
-                    </header>
+                    </h1>
+                    </div>
                     </div>
                     {/* switch keeps pages from loading at same time */}
                     <Switch>

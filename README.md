@@ -45,8 +45,7 @@ npm install
 
 ## Credit
 
-*Jorge for creating boiler plate!
-This application was deployed to Heroku services.
+* Jorge for creating boiler plate! This application was deployed to Heroku services.
 -  Link: https://project3-plate.herokuapp.com/
 
 ### Boiler Plate Description
