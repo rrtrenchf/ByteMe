@@ -244,11 +244,9 @@ function Api() {
         zipCode={zipCode}
 
       />
+      
 
-      {/* < Playlist /> */}
-      <PlayerApp/>
-
-      {/* < Playlist /> */}
+      
     </div>
   )
 };
