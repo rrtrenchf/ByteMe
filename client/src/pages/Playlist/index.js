@@ -9,13 +9,9 @@ import SongResults from "../../components/SongResults";
 import Player from "../Playlist/AppPlayer";
 import PlayerApp from "../Playlist/PlayerApi"
 import * as $ from "jquery";
-
 import stylePlay from "../Playlist/stylePlay.css"
 import { MakeitRain } from "./dynamics/Rain.js"
 import { render } from "react-dom";
-
-
-import Playback from "../Playlist/Playback.css"
 
 
 
@@ -48,7 +44,6 @@ const AddQueue= (playlist) =>{
 
 
 
-
 const Playlist = () => {
   // Setting our component's initial state
   const [playlists, setPlaylists] = useState([])
@@ -69,7 +64,7 @@ const Playlist = () => {
     API.getPlaylists()
       .then(res =>
         setPlaylists(res.data),
-
+        
       )
       .catch(err => console.log(err));
   }
@@ -100,7 +95,6 @@ const Playlist = () => {
 
   };
   
-
 for (var i = 0; i<playlists.length;i++){
   
   if(playlists[i].weather=="Clear"){
@@ -114,7 +108,6 @@ for (var i = 0; i<playlists.length;i++){
   console.log(playlists[i].songName,playlists[i].artistName)
   // console.log(playlists)
 }
-
 
 }
 
@@ -134,23 +127,15 @@ for (var i = 0; i<playlists.length;i++){
                 
                 return (
                   <>
-
                   {/* <MakeItRain/> */}
                  
                   <ListItem className="music-div" key={playlist._id}>
-
-                 
-                  <ListItem key={playlist._id}>
-
                     <a href={"/playlist/" + playlist._id}>
                       <h1>
                       {playlist.songName}
                       </h1>
                       <strong>
-
                         by {playlist.artistName}
-                        {playlist.weather} by {playlist.artistName}
-
                       </strong>
                       <h3>
                         ~{playlist.weather} Day~
