@@ -9,7 +9,7 @@ import SongResults from "../../components/SongResults";
 import Player from "../Playlist/AppPlayer";
 import PlayerApp from "../Playlist/PlayerApi"
 import * as $ from "jquery";
-import stylePlay from "../Playlist/stylePlay.css"
+import Playback from "../Playlist/Playback.css"
 
 
 
