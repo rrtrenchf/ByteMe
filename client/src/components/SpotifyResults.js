@@ -14,8 +14,8 @@ function SpotifyResults(props) {
   return (
     <div>
       <table className="table table-striped">
-        <thead className="col-12">
-          <tr style={{ color: "white", fontFamily: "'Montserrat', sans-serif", }}>
+        <thead >
+          <tr style={{ color: "black", fontFamily: "'Montserrat', sans-serif", }}>
             <th className="col-3">Picture</th>
             <th className="col-6">Artist</th>
             <th className="col-3">Genre</th>
@@ -25,7 +25,7 @@ function SpotifyResults(props) {
           {/* filter out search text against results list, loop through list to pull last name we are looking for*/}
           {resultsArray.map(artist => {
             return (
-              <tr style={{ color: "white", fontFamily: "'Montserrat', sans-serif", }}>
+              <tr style={{ color: "black", fontFamily: "'Montserrat', sans-serif", }}>
                 <td className="col-3"> 
                   {artist.images.length === 0 ? "" : <img src={artist.images[2].url} />}
                 </td>
@@ -42,7 +42,6 @@ function SpotifyResults(props) {
 
             )
           })}
-
         </tbody>
       </table>
     </div>
