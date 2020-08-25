@@ -6,6 +6,7 @@ import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn } from "../../components/Form";
 import SongResults from "../../components/SongResults";
+import PlayerApp from "./PlayerApi";
 
 
 const Playlist = () => {
@@ -34,9 +35,11 @@ const Playlist = () => {
       .then(res => loadPlaylist())
       .catch(err => console.log(err));
   }
+ 
 
   return (
     <Container fluid>
+     
       <Row>
       <Col size="md-3"></Col>
       <Col size="md-9 sm-12">
@@ -46,7 +49,7 @@ const Playlist = () => {
               return (
                 <ListItem key={playlist._id}>
                   <a href={"/playlist/" + playlist._id}>
-              <h1>{playlist.weather}</h1>
+              <h1></h1>
                     <strong>
                       {playlist.songName} by {playlist.artistName}
                     </strong>
@@ -59,6 +62,10 @@ const Playlist = () => {
         ) : (
             <h3>No Results to Display</h3>
           )}
+      </Col>
+      <Col size="md-6 sm-12">
+            <h3>Player</h3>
+            <PlayerApp/>
       </Col>
         </Row>
       </Container >

@@ -18,7 +18,11 @@ import SongResults from './SongResults'
 import API from "../utils/API";
 // import Deletebtn from "../components/DeleteBTN"
 import ZipInput from './ZipInput';
-import WeatherResults from './WeatherResults';
+import Playlist from "../pages/Playlist/index"
+import PlayerApp from "../components/PlayerApi"
+import { authEndpoint, clientId, redirectUri, scopes } from "./config";
+
+
 
 function Api() {
   const [search, setSearch] = useState("");
@@ -106,7 +110,7 @@ function Api() {
   const fetchSong = (search) => {
     axios({
       //get token
-      method: 'post',
+      method: 'POST',
       url: 'https://accounts.spotify.com/api/token?grant_type=client_credentials',
       headers: {
         'Accept': 'application/json',
@@ -241,9 +245,8 @@ function Api() {
 
       />
 
-      <WeatherResults
-        weatherResults={weatherResults}
-      />
+      {/* < Playlist /> */}
+      <PlayerApp/>
 
       {/* < Playlist /> */}
     </div>

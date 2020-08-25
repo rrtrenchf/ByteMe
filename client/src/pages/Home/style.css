@@ -1,3 +1,4 @@
+
 @keyframes move_wave {
   0% {
       transform: translateX(0) translateZ(0) scaleY(1)
@@ -68,3 +69,4 @@ animation: move-wave 3s;
 .waveAnimation .waveBottom {
   animation: move_wave 15s linear infinite;
 }
+

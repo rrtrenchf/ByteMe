@@ -10,6 +10,7 @@ import SongResults from '../../components/SongResults';
 import SpotifyResults from '../../components/SpotifyResults';
 import Jumbotron from '../../components/Jumbotron';
 
+
 export const Home = () => {
     // access to the isAuthenticated property from the auth reducer state
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
@@ -26,7 +27,6 @@ export const Home = () => {
             )
         }
     }
-
 
     return (
         <div>
