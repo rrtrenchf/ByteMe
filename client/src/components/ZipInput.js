@@ -22,7 +22,11 @@ const ZipInput = (props) => {
   
     <div
       className="zipInput mb-3"
-      style={{ position: "relative", left: "43%" }}
+      style={{ 
+        position: "relative", 
+        display: "flex", 
+        justifyContent: "center", 
+        alignItems: "center"}}
     >
       <a href="#" onClick={toggleShow}>
         Want a different location?
@@ -34,6 +38,14 @@ const ZipInput = (props) => {
        <input 
         type="text" 
         name="zip" 
+        style={{ 
+          paddingTop: "5px", 
+          paddingBottom: "5px",
+          marginLeft: "2px",
+          marginRight: "2px",
+          fontFamily: "'Montserrat', sans-serif",
+          borderRadius: "10px"
+      }}
         placeholder="Enter ZIP Code"
         onChange={props.handleZipInputChange}
         value={props.zipCode}
@@ -41,7 +53,7 @@ const ZipInput = (props) => {
       }
 
       {!hidden && (
-        <button type="button" class="btn btn-danger" onClick={submit}>
+        <button type="button" class="btn btn-secondary" onClick={submit}>
           New Zip
         </button>
       )}

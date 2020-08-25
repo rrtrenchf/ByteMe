@@ -1,16 +1,10 @@
 
-# Boiler Plate - MERN Application with Authentication using JSON Web Tokens (JWT)  
-
-## Online Example & Deployment:
-
-This application was deployed to Heroku services.
--  Link: https://project3-plate.herokuapp.com/
+# Sweater Weather 
 
 ## Description
+Build a playlist based off your current or an input location! This app allows a user to create a weather based playlist using Spotify. Once logged in, the playlists will be saved and ready to play!
 
-This is a Boiler Plate MERN application with authentication using JSON Web Tokens. This APP was design to be used as a starting point for any developer looking to integrate authentication with a MERN application.
-
-This application uses JWT to handle Authentication and Redux to handle React state.
+[GitHub](https://github.com/Boaardz56/ByteMe.git)
 
 ## Web Tools:
 
@@ -49,24 +43,13 @@ npm install
     4.  Enjoy..!
 ``` 
 
-## Questions
+## Credit
 
-<img src="https://avatars0.githubusercontent.com/u/40499942?v=4" alt="avatar" style="border-radius: 16px" width="30" />
+* Jorge for creating boiler plate! This application was deployed to Heroku services.
+-  Link: https://project3-plate.herokuapp.com/
 
-If you have any questions about the repo, open an issue or contact [jaab30](https://github.com/jaab30) directly at jaab30@yahoo.com.
+### Boiler Plate Description
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/jaab30/ticketGen)
+This is a Boiler Plate MERN application with authentication using JSON Web Tokens. This APP was design to be used as a starting point for any developer looking to integrate authentication with a MERN application.
 
-<!-- ## Video Preview -->
-
-<!-- [<img src="https://user-images.githubusercontent.com/40499942/83711110-511fe400-a5f0-11ea-9fc9-e3397e3b0cb9.jpg" alt="app video" width="600px"/>](https://www.youtube.com/watch?v=6_Ur7afd5zE&feature=youtu.be) -->
-
-## images
-
-<img src="https://user-images.githubusercontent.com/40499942/86778760-bcfacf80-c028-11ea-9c8c-56fa2f0b5cd7.png" alt="app example" width="600px"/>
-<img src="https://user-images.githubusercontent.com/40499942/86778798-c84dfb00-c028-11ea-914b-70ea02530111.png" alt="app example" width="600px"/>
-<img src="https://user-images.githubusercontent.com/40499942/86778829-d4d25380-c028-11ea-90a0-8e1f75e5f3a4.png" alt="app example" width="600px"/>
-<img src="https://user-images.githubusercontent.com/40499942/86778867-df8ce880-c028-11ea-9778-b583e8b9b6bf.png" alt="app example" width="600px"/>
-<img src="https://user-images.githubusercontent.com/40499942/86778904-eb78aa80-c028-11ea-9e92-fed6e7c6af3f.png" alt="app example" width="600px"/>
-
-
+This application uses JWT to handle Authentication and Redux to handle React state.

@@ -19,11 +19,11 @@ const Register = () => {
     }
 
     return (
-        <div className="body ">
+        <div >
             <div className="registerBackground"
                 style={{
                     backgroundImage: "url('https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(11).jpg')",
-                    height: "100%",
+                    height: "100vh",
                     width: "100%",
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",
@@ -43,7 +43,7 @@ const Register = () => {
                 <div className="form-container" >
                     <Header as='h2' secondary="true" textAlign='center'>
                         Register
-            </Header>
+                    </Header>
                     <RegisterForm
                         renderMessage={renderFormMessage}
                         buttonText="Register"

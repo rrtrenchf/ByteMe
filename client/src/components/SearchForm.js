@@ -19,9 +19,10 @@ const SearchForm = (props) => {
                         paddingTop: "5px", 
                         paddingBottom: "5px",
                         fontFamily: "'Montserrat', sans-serif",
+                        borderRadius: "10px"
                     }}
                 />
-                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                {/* <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                     <div class="btn-group" role="group">
                         <button 
                         id="btnGroupDrop1" 
@@ -37,12 +38,12 @@ const SearchForm = (props) => {
                          }}
                         >
                         </button>
-                        <container class="dropdown-menu" >
-                            <button type="button" class="btn btn-secondary" onClick={props.handleSearch} style={{ fontFamily: "'Montserrat', sans-serif", }}>Search Artist</button>
-                            <button type="button" class="btn btn-secondary" onClick={props.handleSong} style={{ fontFamily: "'Montserrat', sans-serif", }}>Search Song</button>
-                        </container>
-                    </div>
-                </div>
+                
+                            <button type="button" class="btn btn-secondary" onClick={props.handleSearch} style={{ fontFamily: "'Montserrat', sans-serif", }}>Search Artist</button> */}
+                            <button type="button" class="btn btn-secondary" onClick={props.handleSong} style={{ fontFamily: "'Montserrat', sans-serif", }}>Search</button>
+              
+                    
+              
             </div>
         </form>
     );
