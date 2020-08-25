@@ -20,7 +20,7 @@ const SongResults = (props) => {
       {/* <h2>Weather Feel : {forecastResults}</h2> */}
       <table className="table table-striped">
         <thead>
-          <tr style={{ color: "black", fontFamily: "'Montserrat', sans-serif", }}>
+          <tr style={{ color: "white", fontFamily: "'Montserrat', sans-serif", }}>
             <th scope="col-3">Image</th>
             <th scope="col">Song Title</th> 
             <th scope="col-3">Artist</th>
