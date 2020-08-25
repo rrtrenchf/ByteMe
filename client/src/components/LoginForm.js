@@ -23,7 +23,7 @@ const LoginForm = (props) => {
 
     return (
         <>
-
+    
             <Form onSubmit={props.handleSubmit(props.onSubmit)} size='large'>
 
                 <Segment>
@@ -64,7 +64,7 @@ const renderInput = ({ input, label }) => {
 
     return (
 
-        <div className="field"
+        <div className="field"   
         >
             <div className="ui fluid left icon input">
                 <input {...input} autoComplete="off" placeholder={label} type={`${input.name === "email" ? "text" : "password"}`} />

@@ -15,7 +15,11 @@ const SearchForm = (props) => {
                     className="searchbox text-center"
                     placeholder="Search by Artist or Song"
                     id="search"
-                    style={{ paddingTop: "5px", paddingBottom: "5px" }}
+                    style={{ 
+                        paddingTop: "5px", 
+                        paddingBottom: "5px",
+                        fontFamily: "'Montserrat', sans-serif",
+                    }}
                 />
                 <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                     <div class="btn-group" role="group">
@@ -26,12 +30,16 @@ const SearchForm = (props) => {
                         data-toggle="dropdown" 
                         aria-haspopup="true" 
                         aria-expanded="false"
-                        style={{ paddingTop: "4px", paddingBottom: "4px" }}
+                        style={{ 
+                            paddingTop: "4px", 
+                            paddingBottom: "4px",
+                            
+                         }}
                         >
                         </button>
                         <container class="dropdown-menu" >
-                            <button type="button" class="btn btn-secondary" onClick={props.handleSearch}>Search Artist</button>
-                            <button type="button" class="btn btn-secondary" onClick={props.handleSong} >Search Song</button>
+                            <button type="button" class="btn btn-secondary" onClick={props.handleSearch} style={{ fontFamily: "'Montserrat', sans-serif", }}>Search Artist</button>
+                            <button type="button" class="btn btn-secondary" onClick={props.handleSong} style={{ fontFamily: "'Montserrat', sans-serif", }}>Search Song</button>
                         </container>
                     </div>
                 </div>

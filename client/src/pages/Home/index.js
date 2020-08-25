@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Header, Message, Button, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Api from "../../components/Api";
-import $ from "jquery";
 import "./style.css";
-// import './home.html';
+import $ from "jquery"
+import SongResults from '../../components/SongResults';
+import SpotifyResults from '../../components/SpotifyResults';
+import Jumbotron from '../../components/Jumbotron';
 
 
 export const Home = () => {
@@ -25,73 +27,21 @@ export const Home = () => {
             )
         }
     }
-    // const makeItRain = function () {
-    //     //clear out everything
-    //     $('.rain').empty();
-
-    //     let increment = 0;
-    //     let drops = "";
-    //     let backDrops = "";
-
-    //     while (increment < 100) {
-    //         //couple random numbers to use for various randomizations
-    //         //random number between 98 and 1
-    //         let randoHundo = (Math.floor(Math.random() * (98 - 1 + 1) + 1));
-    //         //random number between 5 and 2
-    //         let randoFiver = (Math.floor(Math.random() * (5 - 2 + 1) + 2));
-    //         //increment
-    //         increment += randoFiver;
-    //         //add in a new raindrop with various randomizations to certain CSS properties
-    //         drops += '<div class="drop" style="left: ' + increment + '%; bottom: ' + (randoFiver + randoFiver - 1 + 100) + '%; animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"><div class="stem" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"></div><div class="splat" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"></div></div>';
-    //         backDrops += '<div class="drop" style="right: ' + increment + '%; bottom: ' + (randoFiver + randoFiver - 1 + 100) + '%; animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"><div class="stem" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"></div><div class="splat" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"></div></div>';
-
-    //     }
-
-
-
-
-
-
-
-
-    //     { $('.rain.front-row').append(drops) };
-    //     { $('.rain.back-row').append(backDrops) };
-
-
-    //     {
-    //         $('.splat-toggle.toggle').on('click', function () {
-    //             $('body').toggleClass('splat-toggle');
-    //             $('.splat-toggle.toggle').toggleClass('active');
-    //             makeItRain();
-    //         })
-    //     }
-
-    //     {
-    //         $('.back-row-toggle.toggle').on('click', function () {
-    //             $('body').toggleClass('back-row-toggle');
-    //             $('.back-row-toggle.toggle').toggleClass('active');
-    //             makeItRain();
-    //         })
-    //     }
-
-    //     {
-    //         $('.single-toggle.toggle').on('click', function () {
-    //             $('body').toggleClass('single-toggle');
-    //             $('.single-toggle.toggle').toggleClass('active');
-    //             makeItRain();
-    //         })
-    //     }
-
-    // }
-
 
     return (
         <div>
-
-            <div class="jumbotron" >
-                <h1 class="display-4" style={{ textAlign:"center",fontFamily: "'Julius Sans One', sans-serif" }}>Sweater Weather</h1>
-
-            </div>
+            <Jumbotron />
+                <div className="waveWrapper waveAnimation">
+                    <div className="waveWrapperInner bgTop">
+                        <div className="wave waveTop" style={{ backgroundImage: "url('http://front-end-noobs.com/jecko/img/wave-top.png')" }}></div>
+                    </div>
+                    <div className="waveWrapperInner bgMiddle">
+                        <div className="wave waveMiddle" style={{ backgroundImage: "url('http://front-end-noobs.com/jecko/img/wave-mid.png')" }}></div>
+                    </div>
+                    <div className="waveWrapperInner bgBottom">
+                        <div className="wave waveBottom" style={{ backgroundImage: "url('http://front-end-noobs.com/jecko/img/wave-bot.png')" }}></div>
+                    </div>
+                </div>
             <Router>
                 <div>
                     {/* switch keeps pages from loading at same time */}
@@ -100,10 +50,7 @@ export const Home = () => {
                     </Switch>
                 </div>
             </Router>
-
         </div>
-        
-
     )
 };
 

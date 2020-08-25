@@ -8,6 +8,7 @@ import { Input, TextArea, FormBtn } from "../../components/Form";
 import SongResults from "../../components/SongResults";
 import PlayerApp from "./PlayerApi";
 
+
 const Playlist = () => {
   // Setting our component's initial state
   const [playlists, setPlaylists] = useState([])
@@ -40,7 +41,8 @@ const Playlist = () => {
     <Container fluid>
      
       <Row>
-      <Col size="md-6 sm-12">
+      <Col size="md-3"></Col>
+      <Col size="md-9 sm-12">
         {playlists.length ? (
           <List>
             {playlists.map(playlist => {
