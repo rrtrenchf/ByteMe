@@ -31,11 +31,11 @@ const Login = (props) => {
     return (
      
    
-        <div className="body" >
+        <div >
             <div className="loginBackground"
                 style={{
                     backgroundImage: "url('https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(11).jpg')",
-                    height: "100%",
+                    height: "100vh",
                     width: "100%",
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",

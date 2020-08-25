@@ -29,28 +29,40 @@ export const Home = () => {
     }
 
     return (
-        <div>
-            {/* <Jumbotron />
-                <div className="waveWrapper waveAnimation">
-                    <div className="waveWrapperInner bgTop">
-                        <div className="wave waveTop" style={{ backgroundImage: "url('http://front-end-noobs.com/jecko/img/wave-top.png')" }}></div>
+
+        <div className="waveWrapper waveAnimation">
+            <div className="waveWrapperInner bgTop">
+                <div className="wave waveTop" style={{ backgroundImage: "url('http://front-end-noobs.com/jecko/img/wave-top.png')" }}></div>
+            </div>
+            <div className="waveWrapperInner bgMiddle">
+                <div className="wave waveMiddle" style={{ backgroundImage: "url('http://front-end-noobs.com/jecko/img/wave-mid.png')" }}></div>
+            </div>
+            <div className="waveWrapperInner bgBottom">
+                <div className="wave waveBottom" style={{ backgroundImage: "url('http://front-end-noobs.com/jecko/img/wave-bot.png')" }}></div>
+            </div>
+            <div className="col-12 waveContainer" >
+                <Router>
+                    <div className="jumbotron" style={{}}>
+                        <header className="display-1"
+                            style={{
+                                // backgroundColor: "transparent",
+                                textAlign: "center",
+                                fontFamily: "'Fjalla One', sans-serif",
+                                fontSize: "80px",
+                                fontWeight: "bold",
+                                color: "black"
+                            }}>
+                            Sweater Weather
+                    </header>
                     </div>
-                    <div className="waveWrapperInner bgMiddle">
-                        <div className="wave waveMiddle" style={{ backgroundImage: "url('http://front-end-noobs.com/jecko/img/wave-mid.png')" }}></div>
-                    </div>
-                    <div className="waveWrapperInner bgBottom">
-                        <div className="wave waveBottom" style={{ backgroundImage: "url('http://front-end-noobs.com/jecko/img/wave-bot.png')" }}></div>
-                    </div>
-                </div> */}
-            <Router>
-                <div>
                     {/* switch keeps pages from loading at same time */}
                     <Switch>
                         <Route exact path="/" component={Api} />
                     </Switch>
-                </div>
-            </Router>
+                </Router>
+            </div>
         </div>
+
     )
 };
 
