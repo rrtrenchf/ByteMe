@@ -19,6 +19,7 @@ const SearchForm = (props) => {
                         paddingTop: "5px", 
                         paddingBottom: "5px",
                         fontFamily: "'Montserrat', sans-serif",
+                        borderRadius: "10px"
                     }}
                 />
                 {/* <div class="btn-group" role="group" aria-label="Button group with nested dropdown">

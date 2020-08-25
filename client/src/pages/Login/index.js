@@ -29,8 +29,6 @@ const Login = (props) => {
     }
 
     return (
-     
-   
         <div >
             <div className="loginBackground"
                 style={{
@@ -63,7 +61,6 @@ const Login = (props) => {
                     />
                 </div>
             </div>
-
         </div>
     )
 }
