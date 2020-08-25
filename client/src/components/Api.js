@@ -21,7 +21,7 @@ import ZipInput from './ZipInput';
 import Playlist from "../pages/Playlist/index"
 import PlayerApp from "../pages/Playlist/PlayerApi"
 import { authEndpoint, clientId, redirectUri, scopes } from "./config";
-import Jumbotron from './Jumbotron';
+
 
 
 
@@ -220,8 +220,7 @@ function Api() {
   return (
 
     <div>
-      <Jumbotron />
-
+     
       <SearchForm
         handleInputChange={handleInputChange}
         handleSearch={handleSearch}

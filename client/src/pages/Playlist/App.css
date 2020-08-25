@@ -45,13 +45,15 @@
   }
   
   body {
-    background-image: linear-gradient(to top, #679a7f 20%, #a4c9c0 80%);
-    opacity: 0.7;
+    /* background-image: linear-gradient(to top, #679a7f 20%, #a4c9c0 80%); */
+    /* opacity: 0.7; */
     color: #eee;
     font-family: Helvetica, Arial;
     font-size: 3vmin;
   }
   
+  
+
   .hidden {
     display: none;
   }
