@@ -38,7 +38,7 @@ const AddQueue= (playlist) =>{
      
       
     });
-    console.log()
+    console.log("p")
     
 }
 
