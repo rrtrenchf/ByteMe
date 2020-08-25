@@ -6,6 +6,7 @@ import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn } from "../../components/Form";
 import SongResults from "../../components/SongResults";
+import PlayerApp from "./PlayerApi";
 
 const Playlist = () => {
   // Setting our component's initial state
@@ -59,6 +60,10 @@ const Playlist = () => {
         ) : (
             <h3>No Results to Display</h3>
           )}
+      </Col>
+      <Col size="md-6 sm-12">
+            <h3>Player</h3>
+            <PlayerApp/>
       </Col>
         </Row>
       </Container >
