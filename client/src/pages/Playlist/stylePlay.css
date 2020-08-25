@@ -1,3 +1,8 @@
 .play-btn{
-    color: rgb(60, 61, 61);
+    color: rgb(32, 44, 44);
+}
+
+.list-overflow-container{
+    margin: 20px;
+    padding:20px;
 }

@@ -131,7 +131,6 @@ class PlayerApp extends Component {
 
 
 
-
   device(){
     $.ajax({
         url: "	https://api.spotify.com/v1/me/player/devices",
@@ -172,7 +171,7 @@ class PlayerApp extends Component {
               progress_ms={this.state.progress_ms}
               
             />
-            <button onClick={this.AddQueue}>Pause/Play</button>
+            <button className="pause-btn" onClick={this.play}>Pause/Play</button>
             </div>
           )}
           {this.state.no_data && (

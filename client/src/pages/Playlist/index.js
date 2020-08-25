@@ -10,6 +10,9 @@ import Player from "../Playlist/AppPlayer";
 import PlayerApp from "../Playlist/PlayerApi"
 import * as $ from "jquery";
 import stylePlay from "../Playlist/stylePlay.css"
+import { MakeitRain } from "./dynamics/Rain.js"
+import { render } from "react-dom";
+
 
 
 
@@ -38,8 +41,7 @@ const AddQueue= (playlist) =>{
     console.log()
     
 }
-    
- 
+
 
 
 const Playlist = () => {
@@ -63,8 +65,6 @@ const Playlist = () => {
       .then(res =>
         setPlaylists(res.data),
         
-
-
       )
       .catch(err => console.log(err));
   }
@@ -95,18 +95,29 @@ const Playlist = () => {
 
   };
   
+for (var i = 0; i<playlists.length;i++){
+  
+  if(playlists[i].weather=="Clear"){
+    
+    
+    
+      // playlists[i].songName, playlists[i].artistName
+      
+ 
+    
+  console.log(playlists[i].songName,playlists[i].artistName)
+  // console.log(playlists)
+}
 
-
-
-
-
-
+}
 
   return (
-    <Container fluid>
+    
+    <Container  fluid>
+      
 
       <Row>
-        <Col size="md-6 sm-12">
+        <Col  size="md-6 sm-12" >
           {playlists.length ? (
             <>
             
@@ -116,13 +127,19 @@ const Playlist = () => {
                 
                 return (
                   <>
+                  {/* <MakeItRain/> */}
                  
-                  <ListItem key={playlist._id}>
+                  <ListItem className="music-div" key={playlist._id}>
                     <a href={"/playlist/" + playlist._id}>
-                      <h1></h1>
+                      <h1>
+                      {playlist.songName}
+                      </h1>
                       <strong>
-                        {playlist.weather} by {playlist.artistName}
+                        by {playlist.artistName}
                       </strong>
+                      <h3>
+                        ~{playlist.weather} Day~
+                      </h3>
                     </a>
                     <DeleteBtn onClick={() => deletePlaylist(playlist._id)} />
                     <br></br>
@@ -154,6 +171,7 @@ const Playlist = () => {
         </Col>
       </Row>
     </Container >
+    
 
   );
 }
