@@ -129,27 +129,7 @@ class PlayerApp extends Component {
     }
   }
 
-  AddQueue(){
-      
-    
-    $.ajax({
-     
-      
-        method: 'POST',
-      url: "https://api.spotify.com/v1/me/player/queue?uri=&device_id=5d6202bb3129cdbebdc255cc06caa05184ef3d2b",
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer BQC0Kk-YUtZ7sfEIIo8gYMdGXjdOcR2ps0LGPa9ukBo7Qs8XdHhFHyak4lfgZfmjalFd0A5VyBeNU0us-SSg73MUR3kiUZjy_44Ac-1_RGFQ1D32wHc8nKgDVR1hTTHt8ThbXwOjhcGtkiDFHHZ62m70PDVctMsbWZXGRvfShK2FYizWc3dptOGf4uSSgvs6080FDWOe-ekMxlGvzcAh3YuT0Zk0HKeq4xdsH7_W1I2OdffE6i_NbyUzKho9bY75A42ZfKFs7dpvB4dOIuAXw3hvOZ-QkVqcAFPD',
-      },
-      success: data => {
-        console.log("DEVICE DATA===========DEVICE DATA===========DEVICE DATA===========DEVICE DATA===========DEVICE DATA===========",data)
-      }
-       
-        
-      });
-      
-  }
+
   device(){
     $.ajax({
         url: "	https://api.spotify.com/v1/me/player/devices",

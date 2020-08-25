@@ -8,6 +8,36 @@ import { Input, TextArea, FormBtn } from "../../components/Form";
 import SongResults from "../../components/SongResults";
 import Player from "../Playlist/AppPlayer";
 import PlayerApp from "../Playlist/PlayerApi"
+import * as $ from "jquery";
+import stylePlay from "../Playlist/stylePlay.css"
+
+
+
+const AddQueue= (playlist) =>{
+      
+    let uri = playlist
+    console.log("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::",playlist)
+  $.ajax({
+   
+    
+      method: 'POST',
+    url: "https://api.spotify.com/v1/me/player/queue?uri="+uri+"&device_id=251e200bf0acecb95d19b53c87fb31e415af83ae",
+    
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer BQCNI9t3h5ytSqZgC253IOfkNwLVdig1Ipnrkrg04nI9nF--PrM-oQOIj_N0VOwfU6G4xQUtt-1nL3tRNiM2wkFV4ZDhi_cQDEEkLYVnN9JoHm1oYHqiGkl4Gh4jBSQNPBND7Lu5K3r9cDc-ArEu314fyxwkJGFElX2ovgqGHkswrzSVDHQ1oofV1dZ1fNU07smV00190z5mpmOx2JViM-yGi0RPqZvNnWu2uIzRWh7nN3jw0oI17EB709YakQExWuZpbm4F_JLNYs45coJ6aGWMh6R_uHjIXdIa',
+    },
+    
+    success: data => {
+      console.log("DEVICE DATA===========DEVICE DATA===========DEVICE DATA===========DEVICE DATA===========DEVICE DATA===========",data)
+    }
+     
+      
+    });
+    console.log()
+    
+}
 
 
 
@@ -32,6 +62,7 @@ const Playlist = () => {
     API.getPlaylists()
       .then(res =>
         setPlaylists(res.data),
+        
 
 
       )
@@ -63,6 +94,7 @@ const Playlist = () => {
     // console.log("@@@@@@@@@@@@@@@@@@@@@@@@@",searchUri)
 
   };
+  
 
 
 
@@ -84,20 +116,17 @@ const Playlist = () => {
                 
                 return (
                   <>
-                  <PlayerApp
-                   songUri={playlist.songUri}
-                
-                />
+                 
                   <ListItem key={playlist._id}>
                     <a href={"/playlist/" + playlist._id}>
                       <h1></h1>
                       <strong>
-                        {playlist.songName} by {playlist.artistName}
+                        {playlist.weather} by {playlist.artistName}
                       </strong>
                     </a>
                     <DeleteBtn onClick={() => deletePlaylist(playlist._id)} />
                     <br></br>
-                    <span onClick={playlist.songUri} className="delete-btn" role="button" tabIndex="0">Play Next
+                    <span  onClick={() => AddQueue(playlist.songUri)} className="play-btn" role="button" tabIndex="0">Play Next
                       ►
                       
                     </span>
@@ -119,7 +148,7 @@ const Playlist = () => {
         </Col>
         <Col size="md-6 sm-12">
           <h3>Player</h3>
-          <Player/>
+          <PlayerApp/>
 
 
         </Col>
