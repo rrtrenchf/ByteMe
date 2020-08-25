@@ -20,6 +20,8 @@ import API from "../utils/API";
 import ZipInput from './ZipInput';
 import Playlist from "../pages/Playlist/index"
 import PlayerApp from "../components/PlayerApi"
+import { authEndpoint, clientId, redirectUri, scopes } from "./config";
+
 
 
 function Api() {
@@ -108,7 +110,7 @@ function Api() {
   const fetchSong = (search) => {
     axios({
       //get token
-      method: 'post',
+      method: 'POST',
       url: 'https://accounts.spotify.com/api/token?grant_type=client_credentials',
       headers: {
         'Accept': 'application/json',

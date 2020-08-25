@@ -33,9 +33,11 @@ const Playlist = () => {
       .then(res => loadPlaylist())
       .catch(err => console.log(err));
   }
+ 
 
   return (
     <Container fluid>
+     
       <Row>
       <Col size="md-6 sm-12">
         {playlists.length ? (
@@ -44,7 +46,7 @@ const Playlist = () => {
               return (
                 <ListItem key={playlist._id}>
                   <a href={"/playlist/" + playlist._id}>
-              <h1>{playlist.weather}</h1>
+              <h1></h1>
                     <strong>
                       {playlist.songName} by {playlist.artistName}
                     </strong>

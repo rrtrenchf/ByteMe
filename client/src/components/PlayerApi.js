@@ -82,7 +82,7 @@ class PlayerApp extends Component {
           progress_ms: data.progress_ms,
           no_data: false /* We need to "reset" the boolean, in case the
                             user does not give F5 and has opened his Spotify. */
-        });
+        })
       }
     });
   }
@@ -113,23 +113,44 @@ class PlayerApp extends Component {
           // Checks if the data is not empty
           console.log("PLAY DATA",data)
         }
-      });
+      }).then()
     }
   }
+
   AddQueue(){
+      
+    
     $.ajax({
-        url: "https://api.spotify.com/v1/me/player/queue=4JehYebiI9JE8sR8MisGVb",
-        type: "POST",
+        method: 'POST',
+      url: "https://api.spotify.com/v1/me/player/queue?uri=spotify:track:58mFu3oIpBa0HLNeJIxsw3&device_id=1362fc4794c76b95db494004a7dab1727c47455f",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer BQDt0N9spjWBzV2lsiNkv29q-Oq4hWpb5LFaHMqJjq-jsMZu0EQNcl_WG7gnQdEHna4Wkja8FvxSBMvnJSUQY2rMN_L39hQwBkfSGUJ-NMonIyeSi3y-NM7eB_jPZEvsk8n7-GbL4EkgSKO979rShD4g1uDmCx2eUuRQxdwNgff59wYcc-l9h9ttIqCib2S_xJbDWgkIly_dUo0OKkoWQbbA9-5XprgNi9CJ3CQF4ry5Id1aQxyQWv6in8mcQ6IDJzqQikUAnj0vuuCRc6GIZ7iQX1Mu8hlvOipw',
+      },
+      success: data => {
+        console.log("DEVICE DATA===========DEVICE DATA===========DEVICE DATA===========DEVICE DATA===========DEVICE DATA===========",data)
+      }
+       
+        
+      });
+      
+  }
+  device(){
+    $.ajax({
+        url: "	https://api.spotify.com/v1/me/player/devices",
+        type: "GET",
         beforeSend: xhr => {
-          xhr.setRequestHeader("Authorization", "Bearer " + "BQBQp9Ehe71-6N6_zr670zMI6rTnxG327o2pka4qqt_hQP_-XJq4Yg1Gw9bTm9SvfysI0yrZIxmWVtNvhmE");
+          xhr.setRequestHeader("Authorization: BQBNYhZq4XBXbF-V8WxnUX2zPU4zinBllhglKo-I2N91ILsdm1raH0RGYO3UBbvmdBJehPmTm6d0qeHWXkc");
         },
         success: data => {
           // Checks if the data is not empty
-          console.log("QUEUE DATA",data)
+          console.log("DEVICE DATA===========DEVICE DATA===========DEVICE DATA===========DEVICE DATA===========DEVICE DATA===========",data)
   
          
         }
       });
+      
   }
 
   render() {
@@ -154,7 +175,7 @@ class PlayerApp extends Component {
               is_playing={this.state.is_playing}
               progress_ms={this.state.progress_ms}
             />
-            <button onClick={this.play}>Pause/Play</button>
+            <button onClick={this.AddQueue}>Pause/Play</button>
             </div>
           )}
           {this.state.no_data && (
