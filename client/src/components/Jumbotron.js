@@ -3,10 +3,10 @@ import React, { Component } from 'react'
 class Jumbotron extends Component {
     render() {
         return (
-            <div className="jumbotron" style={{ opacity: ".6" }}>
-                <header className="display-4"
+            <div className="jumbotron" style={{ }}>
+                <header className="display-1"
                     style={{
-                        position: "relative",
+                        backgroundColor: "transparent",
                         textAlign: "center",
                         fontFamily: "'Fjalla One', sans-serif",
                         fontSize: "80px",
@@ -14,7 +14,7 @@ class Jumbotron extends Component {
                         color: "black"
                     }}>
                     Sweater Weather
-        </header>
+                    </header>
             </div>
         )
     }

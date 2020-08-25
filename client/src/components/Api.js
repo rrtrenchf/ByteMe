@@ -19,8 +19,9 @@ import API from "../utils/API";
 // import Deletebtn from "../components/DeleteBTN"
 import ZipInput from './ZipInput';
 import Playlist from "../pages/Playlist/index"
-import PlayerApp from "../components/PlayerApi"
+import PlayerApp from "../pages/Playlist/PlayerApi"
 import { authEndpoint, clientId, redirectUri, scopes } from "./config";
+import Jumbotron from './Jumbotron';
 
 
 
@@ -219,6 +220,8 @@ function Api() {
   return (
 
     <div>
+      <Jumbotron />
+
       <SearchForm
         handleInputChange={handleInputChange}
         handleSearch={handleSearch}
@@ -234,9 +237,9 @@ function Api() {
         zipCode={zipCode}
       />
 
-      <SpotifyResults
+      {/* <SpotifyResults
         spotifyResults={spotifyResults}
-      />
+      /> */}
       <SongResults
         song={song}
         handleAddSong={handleAddSong}

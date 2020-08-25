@@ -22,7 +22,7 @@ const ZipInput = (props) => {
   
     <div
       className="zipInput mb-3"
-      style={{ position: "relative", left: "43%" }}
+      style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center"}}
     >
       <a href="#" onClick={toggleShow}>
         Want a different location?

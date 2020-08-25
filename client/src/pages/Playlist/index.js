@@ -39,10 +39,8 @@ const Playlist = () => {
 
   return (
     <Container fluid>
-     
       <Row>
-      <Col size="md-3"></Col>
-      <Col size="md-9 sm-12">
+      <Col size="md-6 sm-12">
         {playlists.length ? (
           <List>
             {playlists.map(playlist => {

@@ -16,14 +16,18 @@ const SearchForm = (props) => {
                     placeholder="Search by Artist or Song"
                     id="search"
                     style={{ 
-                        paddingTop: "5px", 
-                        paddingBottom: "5px",
+                        paddingTop: "10px", 
+                        paddingBottom: "10px",
                         fontFamily: "'Montserrat', sans-serif",
+                        
                     }}
+                     
                 />
-                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                    <div class="btn-group" role="group">
-                        <button 
+                <div className="input-group-append">
+                <button type="button" class="btn btn-secondary" onClick={props.handleSong} style={{ fontFamily: "'Montserrat', sans-serif", }}>Search</button>
+                {/* <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                    <div class="btn-group" role="group"> */}
+                        {/* <button 
                         id="btnGroupDrop1" 
                         type="button" 
                         class="btn btn-secondary dropdown-toggle" 
@@ -36,13 +40,13 @@ const SearchForm = (props) => {
                             
                          }}
                         >
-                        </button>
-                        <container class="dropdown-menu" >
-                            <button type="button" class="btn btn-secondary" onClick={props.handleSearch} style={{ fontFamily: "'Montserrat', sans-serif", }}>Search Artist</button>
-                            <button type="button" class="btn btn-secondary" onClick={props.handleSong} style={{ fontFamily: "'Montserrat', sans-serif", }}>Search Song</button>
-                        </container>
-                    </div>
-                </div>
+                        </button> */}
+                        {/* <container class="dropdown-menu" > */}
+                            {/* <button type="button" class="btn btn-secondary" onClick={props.handleSearch} style={{ fontFamily: "'Montserrat', sans-serif", }}>Search Artist</button> */}
+                            {/* <button type="button" class="btn btn-secondary" onClick={props.handleSong} style={{ fontFamily: "'Montserrat', sans-serif", }}>Search</button> */}
+                        {/* </container> */}
+                    {/* {/* </div> */}
+                </div> 
             </div>
         </form>
     );
