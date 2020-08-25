@@ -14,6 +14,10 @@ const PlaylistSchema = new Schema({
     weather: {
         type: String,
         require: true
+    },
+    songUri:{
+        type:String,
+        require:true
     }
     // email: {
     //     type: String,
