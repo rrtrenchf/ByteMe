@@ -4,17 +4,22 @@ import { authEndpoint, clientId, redirectUri, scopes } from "./config";
 import hash from "./hash";
 // import Player from "../components/AppPlayer";
 // import logo from "./logo.svg";
-import "./App.css";
+import "./Playback.css";
 import API from "../../utils/API"
 import Player from "./AppPlayer"
+import Playlist from "./index";
 // import Playlist from "../pages/Playlist/"
+
 
 class PlayerApp extends Component {
   constructor() {
-    super();
+    super(Player);
     this.state = {
       token: null,
-      songUri: this.props,
+      props:[],
+      
+      
+      
       item: {
         album: {
           images: [{ url: "" }]
@@ -26,14 +31,17 @@ class PlayerApp extends Component {
       is_playing: "Paused",
       progress_ms: 0,
       no_data: false,
+      
     };
-console.log("+++++++++++++++++++++++++++++++++",this.state.songUri)
+    
+    
+
     this.getCurrentlyPlaying = this.getCurrentlyPlaying.bind(this);
     this.tick = this.tick.bind(this);
     this.play = this.play.bind(this)
   }
 
-
+  
 
   componentDidMount() {
     // Set token
@@ -125,8 +133,10 @@ console.log("+++++++++++++++++++++++++++++++++",this.state.songUri)
       
     
     $.ajax({
+     
+      
         method: 'POST',
-      url: "https://api.spotify.com/v1/me/player/queue?uri=spotify:track:1oOEkBNp4zWnkD7nWjJdog&device_id=5d6202bb3129cdbebdc255cc06caa05184ef3d2b",
+      url: "https://api.spotify.com/v1/me/player/queue?uri=&device_id=5d6202bb3129cdbebdc255cc06caa05184ef3d2b",
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -178,8 +188,9 @@ console.log("+++++++++++++++++++++++++++++++++",this.state.songUri)
               item={this.state.item}
               is_playing={this.state.is_playing}
               progress_ms={this.state.progress_ms}
+              
             />
-            <button onClick={this.play}>Pause/Play</button>
+            <button onClick={this.AddQueue}>Pause/Play</button>
             </div>
           )}
           {this.state.no_data && (
@@ -188,6 +199,8 @@ console.log("+++++++++++++++++++++++++++++++++",this.state.songUri)
             </p>
           )}
         </header>
+        
+        
       </div>
     );
   }
