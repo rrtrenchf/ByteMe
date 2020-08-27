@@ -1,5 +1,5 @@
 {
-  "name": "react-jwt",
+  "name": "sweater--weather",
   "version": "1.0.0",
   "description": "A boiler plate application using React, Express, Node and Mongo with JSON Web Tokens for authentication",
   "main": "server.js",
@@ -9,7 +9,7 @@
     "client": "npm start --prefix client",
     "install": "cd client && npm install",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "cd client && NPM_CONFIG_PRODUCTION=false npm install && npm run build"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
