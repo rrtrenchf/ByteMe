@@ -23,6 +23,7 @@
   "homepage": "https://github.com/jaab30/react-jwt-boiler-plate#readme",
   "dependencies": {
     "bcrypt": "^5.0.0",
+    "build": "^0.1.4",
     "concurrently": "^5.3.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",

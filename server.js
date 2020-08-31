@@ -31,6 +31,12 @@ mongoose.connect('mongodb://localhost/testlist', { useNewUrlParser: true, useUni
 
 // use routes
 app.use(routes);
+app.use(express.static(path.join(__dirname, 'build')));
+
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+})
 
 
 // check for "production" enviroment and set port
