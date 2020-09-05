@@ -112,10 +112,8 @@ for (var i = 0; i<playlists.length;i++){
 }
 
   return (
-    
-    <Container  fluid>
-      
-
+    <>
+    <Container fluid>
       <Row>
         <Col  size="md-6 sm-12" >
           {playlists.length ? (
@@ -172,7 +170,7 @@ for (var i = 0; i<playlists.length;i++){
       </Row>
     </Container >
     
-
+   </>
   );
 }
 
