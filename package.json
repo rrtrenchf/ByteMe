@@ -1,5 +1,5 @@
 {
-  "name": "react-jwt",
+  "name": "sweater--weather",
   "version": "1.0.0",
   "description": "A boiler plate application using React, Express, Node and Mongo with JSON Web Tokens for authentication",
   "engines": {
