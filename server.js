@@ -16,17 +16,17 @@ app.use(express.static("public"));
 
 
 
-// require("./routes/api/playlistRoute")(app);
-// require("./routes/htmlRoutes")(app);
+require("./routes/api/playlistRoute")(app);
+require("./routes/htmlRoutes")(app);
 
 // serve up static assets
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, "/index.html")))
+    app.use(express.static(path.join(__dirname, "./client/build")))
 };
 
 // connect to Mongo DB 
 mongoose.connect(
-    process.env.MONGODB_URI || "mongodb://localhost/sweaterweather", { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: true })
+    process.env.MONGODB_URI || "mongodb://localhost/", { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: true })
     .then(() => console.log(`Mongo DB Succesfully Connected`))
     .catch(err => console.log(err));
 
