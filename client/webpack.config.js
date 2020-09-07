@@ -23,7 +23,7 @@ module.exports = {
             },
             {
                 test: /\.html$/,
-                loader: "home.html"
+                loader: "index.html"
             }
         ]
     }
