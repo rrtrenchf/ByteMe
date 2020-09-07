@@ -1,15 +1,19 @@
 require('webpack');
 
 module.exports = {
+    
     context: __dirname + '/src/pages/home',
     entry: {
         javascript: "./index.js",
-        html: "./index.html"
+        html: "./index.html",
+        
     },
     output: {
         filename: 'index.html',
         path: __dirname + '/index'
     },
+    
+    
     module: {
         loaders: [
             {
@@ -27,4 +31,5 @@ module.exports = {
             }
         ]
     }
+
 };
