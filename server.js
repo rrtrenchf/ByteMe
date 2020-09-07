@@ -26,7 +26,7 @@ if (process.env.NODE_ENV === "production") {
 
 // connect to Mongo DB 
 mongoose.connect(
-    process.env.MONGODB_URI || "mongodb://sweaterweather:rootroot1@ds241677.mlab.com:41677/heroku_3vtbxgpj", { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: true })
+    process.env.MONGODB_URI || "mongodb://localhost/sweaterweather", { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: true })
     .then(() => console.log(`Mongo DB Succesfully Connected`))
     .catch(err => console.log(err));
 
