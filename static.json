@@ -2,5 +2,11 @@
     "root": "build/",
     "routes": {
       "/**": "home.html"
+    },
+    "proxies": {
+      "/api/": {
+        "origin": "https://sweaterweather2020.herokuapp.com/"
+      }
     }
   }
+  
