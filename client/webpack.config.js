@@ -4,11 +4,11 @@ module.exports = {
     context: __dirname + '/src/pages/home',
     entry: {
         javascript: "./index.js",
-        html: "./home.html"
+        html: "./index.html"
     },
     output: {
-        filename: 'home.html',
-        path: __dirname + '/home'
+        filename: 'index.html',
+        path: __dirname + '/index'
     },
     module: {
         loaders: [
